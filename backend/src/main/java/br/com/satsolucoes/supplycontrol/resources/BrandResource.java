@@ -30,9 +30,9 @@ public class BrandResource {
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Brand> findById(@PathVariable Long id) {
+	public ResponseEntity<BrandDTO> findById(@PathVariable Long id) {
 		Brand obj = service.findById(id);
-		return ResponseEntity.ok().body(obj);
+		return ResponseEntity.ok().body(new BrandDTO(obj));
 	}
 	
 	@PostMapping

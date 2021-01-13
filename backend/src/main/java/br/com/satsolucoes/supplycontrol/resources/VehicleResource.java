@@ -30,9 +30,9 @@ public class VehicleResource {
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Vehicle> findById(@PathVariable Long id) {
+	public ResponseEntity<VehicleDTO> findById(@PathVariable Long id) {
 		Vehicle obj = service.findById(id);
-		return ResponseEntity.ok().body(obj);
+		return ResponseEntity.ok().body(new VehicleDTO(obj));
 	}
 	
 	@PostMapping
