@@ -25,8 +25,8 @@ public class Vehicle implements Serializable{
 	private Integer modelYear;
 	
 	@ManyToOne
-	@JoinColumn(name = "modelvehicle_id")
-	private ModelVehicle modelVehicle;
+	@JoinColumn(name = "modelVehicle_id")
+	private VehicleModel vehicleModel;
 	
 	@OneToMany(mappedBy = "vehicle")
 	private Set<Supply> suplies;
@@ -34,12 +34,12 @@ public class Vehicle implements Serializable{
 	public Vehicle() {
 	}
 
-	public Vehicle(Long id, String licensePlate, Integer modelYear, ModelVehicle modelVehicle) {
+	public Vehicle(Long id, String licensePlate, Integer modelYear, VehicleModel vehicleModel) {
 		super();
 		this.id = id;
 		this.licensePlate = licensePlate;
 		this.modelYear = modelYear;
-		this.modelVehicle = modelVehicle;
+		this.vehicleModel = vehicleModel;
 	}
 
 	public Long getId() {
@@ -66,12 +66,12 @@ public class Vehicle implements Serializable{
 		this.modelYear = modelYear;
 	}
 	
-	public ModelVehicle getModelVehicle() {
-		return modelVehicle;
+	public VehicleModel getVehicleModel() {
+		return vehicleModel;
 	}
 
-	public void setModelVehicle(ModelVehicle modelVehicle) {
-		this.modelVehicle = modelVehicle;
+	public void setVehicleModel(VehicleModel vehicleModel) {
+		this.vehicleModel = vehicleModel;
 	}
 
 	public Set<Supply> getSuplies() {

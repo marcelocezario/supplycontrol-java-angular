@@ -11,29 +11,29 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.satsolucoes.supplycontrol.entities.ModelVehicle;
-import br.com.satsolucoes.supplycontrol.repositories.ModelVehicleRepository;
+import br.com.satsolucoes.supplycontrol.entities.VehicleModel;
+import br.com.satsolucoes.supplycontrol.repositories.VehicleModelRepository;
 import br.com.satsolucoes.supplycontrol.services.exceptions.DatabaseException;
 import br.com.satsolucoes.supplycontrol.services.exceptions.ResourceNotFoundException;
 
 @Service
-public class ModelVehicleService {
+public class VehicleModelService {
 
 	@Autowired
-	private ModelVehicleRepository repository;
+	private VehicleModelRepository repository;
 
 	@Transactional(readOnly = true)
-	public List<ModelVehicle> findAll() {
+	public List<VehicleModel> findAll() {
 		return repository.findAll();
 	}
 
 	@Transactional(readOnly = true)
-	public ModelVehicle findById(Long id) {
-		Optional<ModelVehicle> obj = repository.findById(id);
+	public VehicleModel findById(Long id) {
+		Optional<VehicleModel> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 
-	public ModelVehicle insert(ModelVehicle obj) {
+	public VehicleModel insert(VehicleModel obj) {
 		return repository.save(obj);
 	}
 
@@ -47,14 +47,14 @@ public class ModelVehicleService {
 		}
 	}
 
-	public void updateData(ModelVehicle entity, ModelVehicle obj) {
+	public void updateData(VehicleModel entity, VehicleModel obj) {
 		entity.setName(obj.getName());
 		entity.setBrand(obj.getBrand());
 	}
 
-	public ModelVehicle update(Long id, ModelVehicle obj) {
+	public VehicleModel update(Long id, VehicleModel obj) {
 		try {
-			ModelVehicle entity = repository.getOne(id);
+			VehicleModel entity = repository.getOne(id);
 			updateData(entity, obj);
 			return repository.save(entity);
 		} catch (EntityNotFoundException e) {

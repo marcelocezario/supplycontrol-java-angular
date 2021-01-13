@@ -23,7 +23,7 @@ public class Brand implements Serializable{
 	private String name;
 	
 	@OneToMany(mappedBy = "brand")
-	private Set<ModelVehicle> models = new HashSet<>();
+	private Set<VehicleModel> models = new HashSet<>();
 	
 	public Brand() {
 	}
@@ -50,7 +50,7 @@ public class Brand implements Serializable{
 		this.name = name;
 	}
 
-	public Set<ModelVehicle> getModels() {
+	public Set<VehicleModel> getModels() {
 		return models;
 	}
 

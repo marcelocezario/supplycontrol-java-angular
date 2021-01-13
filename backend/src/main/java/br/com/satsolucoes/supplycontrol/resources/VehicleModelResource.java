@@ -12,25 +12,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.satsolucoes.supplycontrol.entities.ModelVehicle;
-import br.com.satsolucoes.supplycontrol.services.ModelVehicleService;
+import br.com.satsolucoes.supplycontrol.entities.VehicleModel;
+import br.com.satsolucoes.supplycontrol.services.VehicleModelService;
 
 @RestController
 @RequestMapping(value="/vehiclemodels")
-public class ModelVehicleResource {
+public class VehicleModelResource {
 	
 	@Autowired
-	private ModelVehicleService service;
+	private VehicleModelService service;
 	
 	@GetMapping
-	public ResponseEntity<List<ModelVehicle>> findAll() {
-		List<ModelVehicle> list = service.findAll();
+	public ResponseEntity<List<VehicleModel>> findAll() {
+		List<VehicleModel> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<ModelVehicle> findById(@PathVariable Long id) {
-		ModelVehicle obj = service.findById(id);
+	public ResponseEntity<VehicleModel> findById(@PathVariable Long id) {
+		VehicleModel obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 	
@@ -41,7 +41,7 @@ public class ModelVehicleResource {
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<ModelVehicle> update(@PathVariable Long id, @RequestBody ModelVehicle obj) {
+	public ResponseEntity<VehicleModel> update(@PathVariable Long id, @RequestBody VehicleModel obj) {
 		obj = service.update(id, obj);
 		return ResponseEntity.ok().body(obj);
 	}

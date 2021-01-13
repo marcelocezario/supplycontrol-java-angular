@@ -49,7 +49,7 @@ public class VehicleService {
 	
 	public void updateData(Vehicle entity, Vehicle obj) {
 		entity.setLicensePlate(obj.getLicensePlate());
-		entity.setModelVehicle(obj.getModelVehicle());
+		entity.setVehicleModel(obj.getVehicleModel());
 		entity.setModelYear(obj.getModelYear());
 	}
 	

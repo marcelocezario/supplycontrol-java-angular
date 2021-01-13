@@ -13,8 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_model_vehicle")
-public class ModelVehicle implements Serializable{
+@Table(name = "tb_vehicle_model")
+public class VehicleModel implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -27,13 +27,13 @@ public class ModelVehicle implements Serializable{
 	@JoinColumn(name = "brand_id")
 	private Brand brand;
 	
-	@OneToMany(mappedBy = "modelVehicle")
+	@OneToMany(mappedBy = "vehicleModel")
 	private Set<Vehicle> vehicles;
 	
-	public ModelVehicle() {
+	public VehicleModel() {
 	}
 
-	public ModelVehicle(Long id, String name, Brand brand) {
+	public VehicleModel(Long id, String name, Brand brand) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -84,7 +84,7 @@ public class ModelVehicle implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ModelVehicle other = (ModelVehicle) obj;
+		VehicleModel other = (VehicleModel) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
