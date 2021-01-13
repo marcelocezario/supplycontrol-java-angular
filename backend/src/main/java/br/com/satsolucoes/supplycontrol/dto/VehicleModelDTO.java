@@ -13,8 +13,7 @@ public class VehicleModelDTO implements Serializable{
 	
 	private Long id;
 	private String name;
-	private Brand brand;
-	private List<VehicleDTO> vehicles;
+	private BrandDTO brand;
 	
 	public VehicleModelDTO() {
 	}
@@ -23,14 +22,13 @@ public class VehicleModelDTO implements Serializable{
 		super();
 		this.id = id;
 		this.name = name;
-		this.brand = brand;
+		this.brand = new BrandDTO(brand);
 	}
 	
 	public VehicleModelDTO(VehicleModel entity) {
 		id = entity.getId();
 		name = entity.getName();
-		brand = entity.getBrand();
-		vehicles = entity.getVehicles().stream().map(x -> new VehicleDTO(x)).collect(Collectors.toList());
+		brand = new BrandDTO(entity.getBrand());
 	}
 
 	public Long getId() {
@@ -49,15 +47,11 @@ public class VehicleModelDTO implements Serializable{
 		this.name = name;
 	}
 
-	public Brand getBrand() {
+	public BrandDTO getBrand() {
 		return brand;
 	}
 
 	public void setBrand(Brand brand) {
-		this.brand = brand;
+		this.brand = new BrandDTO(brand);
 	}
-
-	public List<VehicleDTO> getVehicles() {
-		return vehicles;
-	}	
 }

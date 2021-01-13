@@ -1,8 +1,6 @@
 package br.com.satsolucoes.supplycontrol.dto;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import br.com.satsolucoes.supplycontrol.entities.Vehicle;
 import br.com.satsolucoes.supplycontrol.entities.VehicleModel;
@@ -14,8 +12,7 @@ public class VehicleDTO implements Serializable{
 	private Long id;
 	private String licensePlate;
 	private Integer modelYear;
-	private VehicleModel vehicleModel;
-	private List<SupplyDTO> suplies;
+	private VehicleModelDTO vehicleModel;
 	
 	public VehicleDTO() {
 	}
@@ -25,15 +22,14 @@ public class VehicleDTO implements Serializable{
 		this.id = id;
 		this.licensePlate = licensePlate;
 		this.modelYear = modelYear;
-		this.vehicleModel = vehicleModel;
+		this.vehicleModel = new VehicleModelDTO(vehicleModel);
 	}
 	
 	public VehicleDTO(Vehicle entity) {
 		id = entity.getId();
 		licensePlate = entity.getLicensePlate();
 		modelYear = entity.getModelYear();
-		vehicleModel = entity.getVehicleModel();
-		suplies = entity.getSuplies().stream().map(x -> new SupplyDTO(x)).collect(Collectors.toList());
+		vehicleModel = new VehicleModelDTO(entity.getVehicleModel());
 	}
 
 	public Long getId() {
@@ -60,15 +56,11 @@ public class VehicleDTO implements Serializable{
 		this.modelYear = modelYear;
 	}
 
-	public VehicleModel getVehicleModel() {
+	public VehicleModelDTO getVehicleModel() {
 		return vehicleModel;
 	}
 
 	public void setVehicleModel(VehicleModel vehicleModel) {
-		this.vehicleModel = vehicleModel;
-	}
-
-	public List<SupplyDTO> getSuplies() {
-		return suplies;
+		this.vehicleModel = new VehicleModelDTO(vehicleModel);
 	}
 }
