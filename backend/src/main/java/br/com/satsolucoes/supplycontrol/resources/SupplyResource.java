@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.satsolucoes.supplycontrol.dto.SupplyDTO;
 import br.com.satsolucoes.supplycontrol.entities.Supply;
 import br.com.satsolucoes.supplycontrol.services.SupplyService;
 
@@ -23,8 +24,8 @@ public class SupplyResource {
 	private SupplyService service;
 	
 	@GetMapping
-	public ResponseEntity<List<Supply>> findAll() {
-		List<Supply> list = service.findAll();
+	public ResponseEntity<List<SupplyDTO>> findAll() {
+		List<SupplyDTO> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 	

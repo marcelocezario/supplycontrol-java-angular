@@ -2,6 +2,7 @@ package br.com.satsolucoes.supplycontrol.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.persistence.EntityNotFoundException;
 
@@ -11,6 +12,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.satsolucoes.supplycontrol.dto.BrandDTO;
 import br.com.satsolucoes.supplycontrol.entities.Brand;
 import br.com.satsolucoes.supplycontrol.repositories.BrandRepository;
 import br.com.satsolucoes.supplycontrol.services.exceptions.DatabaseException;
@@ -23,8 +25,9 @@ public class BrandService {
 	private BrandRepository repository;
 	
 	@Transactional(readOnly = true)
-	public List<Brand> findAll() {
-		return repository.findAll();
+	public List<BrandDTO> findAll() {
+		List<Brand> list = repository.findAll();
+		return list.stream().map(x -> new BrandDTO(x)).collect(Collectors.toList());
 	}
 	
 	@Transactional(readOnly = true)

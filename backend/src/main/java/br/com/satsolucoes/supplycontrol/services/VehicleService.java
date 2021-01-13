@@ -2,6 +2,7 @@ package br.com.satsolucoes.supplycontrol.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.persistence.EntityNotFoundException;
 
@@ -11,6 +12,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.satsolucoes.supplycontrol.dto.VehicleDTO;
 import br.com.satsolucoes.supplycontrol.entities.Vehicle;
 import br.com.satsolucoes.supplycontrol.repositories.VehicleRepository;
 import br.com.satsolucoes.supplycontrol.services.exceptions.DatabaseException;
@@ -23,8 +25,9 @@ public class VehicleService {
 	private VehicleRepository repository;
 
 	@Transactional(readOnly = true)
-	public List<Vehicle> findAll() {
-		return repository.findAll();
+	public List<VehicleDTO> findAll() {
+		List<Vehicle> list = repository.findAll();
+		return list.stream().map(x -> new VehicleDTO(x)).collect(Collectors.toList());
 	}
 
 	@Transactional(readOnly = true)

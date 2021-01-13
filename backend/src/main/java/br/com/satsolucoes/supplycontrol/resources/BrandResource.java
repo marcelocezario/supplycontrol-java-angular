@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.satsolucoes.supplycontrol.dto.BrandDTO;
 import br.com.satsolucoes.supplycontrol.entities.Brand;
 import br.com.satsolucoes.supplycontrol.services.BrandService;
 
@@ -23,8 +24,8 @@ public class BrandResource {
 	private BrandService service;
 	
 	@GetMapping
-	public ResponseEntity<List<Brand>> findAll() {
-		List<Brand> list = service.findAll();
+	public ResponseEntity<List<BrandDTO>> findAll() {
+		List<BrandDTO> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 	

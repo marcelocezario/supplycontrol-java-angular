@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.satsolucoes.supplycontrol.dto.VehicleModelDTO;
 import br.com.satsolucoes.supplycontrol.entities.VehicleModel;
 import br.com.satsolucoes.supplycontrol.services.VehicleModelService;
 
@@ -23,8 +24,8 @@ public class VehicleModelResource {
 	private VehicleModelService service;
 	
 	@GetMapping
-	public ResponseEntity<List<VehicleModel>> findAll() {
-		List<VehicleModel> list = service.findAll();
+	public ResponseEntity<List<VehicleModelDTO>> findAll() {
+		List<VehicleModelDTO> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 	
