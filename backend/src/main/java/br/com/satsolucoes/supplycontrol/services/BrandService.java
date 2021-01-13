@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.satsolucoes.supplycontrol.entities.Brand;
 import br.com.satsolucoes.supplycontrol.repositories.BrandRepository;
@@ -21,10 +22,12 @@ public class BrandService {
 	@Autowired
 	private BrandRepository repository;
 	
+	@Transactional(readOnly = true)
 	public List<Brand> findAll() {
 		return repository.findAll();
 	}
 	
+	@Transactional(readOnly = true)
 	public Brand findById(Long id) {
 		Optional<Brand> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ResourceNotFoundException(id));

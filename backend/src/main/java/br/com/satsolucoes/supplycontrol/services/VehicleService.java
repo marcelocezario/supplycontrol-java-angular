@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.satsolucoes.supplycontrol.entities.Vehicle;
 import br.com.satsolucoes.supplycontrol.repositories.VehicleRepository;
@@ -20,11 +21,13 @@ public class VehicleService {
 	
 	@Autowired
 	private VehicleRepository repository;
-	
+
+	@Transactional(readOnly = true)
 	public List<Vehicle> findAll() {
 		return repository.findAll();
 	}
-	
+
+	@Transactional(readOnly = true)
 	public Vehicle findById(Long id) {
 		Optional<Vehicle> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ResourceNotFoundException(id));

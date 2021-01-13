@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.satsolucoes.supplycontrol.entities.Supply;
 import br.com.satsolucoes.supplycontrol.repositories.SupplyRepository;
@@ -20,11 +21,13 @@ public class SupplyService {
 	
 	@Autowired
 	private SupplyRepository repository;
-	
+
+	@Transactional(readOnly = true)
 	public List<Supply> findAll() {
 		return repository.findAll();
 	}
-	
+
+	@Transactional(readOnly = true)	
 	public Supply findById(Long id) {
 		Optional<Supply> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
