@@ -3,14 +3,29 @@ package br.com.satsolucoes.supplycontrol.entities;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tb_model_vehicle")
 public class ModelVehicle implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	
+	@ManyToOne
 	private Brand brand;
 	
+	@OneToMany(mappedBy = "modelVehicle")
 	private Set<Vehicle> vehicles;
 	
 	public ModelVehicle() {
