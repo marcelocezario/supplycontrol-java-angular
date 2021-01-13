@@ -1,10 +1,13 @@
 package br.com.satsolucoes.supplycontrol.entities;
 
+import java.io.Serializable;
 import java.time.Instant;
 
 import br.com.satsolucoes.supplycontrol.entities.enums.Fuel;
 
-public class Supply {
+public class Supply implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	
 	private Long id;
 	private Instant moment;
