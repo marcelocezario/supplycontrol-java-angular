@@ -25,6 +25,7 @@ public class Supply implements Serializable{
 	private Integer odometer;
 	private Double literValueOfFuel;
 	private boolean fullTank;
+	private Double averageConsumption;
 	private Fuel fuel;
 	
 	@ManyToOne
@@ -85,22 +86,30 @@ public class Supply implements Serializable{
 		this.fullTank = fullTank;
 	}
 
+	public Double getAverageConsumption() {
+		return averageConsumption;
+	}
+	
+	public void setAverageConsumption(Double averageConsumption) {
+		this.averageConsumption = averageConsumption;
+	}
+
 	public Fuel getFuel() {
 		return fuel;
 	}
-
+	
 	public void setFuel(Fuel fuel) {
 		this.fuel = fuel;
 	}
-
+	
 	public Vehicle getVehicle() {
 		return vehicle;
 	}
-
+	
 	public void setVehicle(Vehicle vehicle) {
 		this.vehicle = vehicle;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
