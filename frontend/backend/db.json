@@ -1,0 +1,359 @@
+{
+    "brands": [
+        {
+            "id": 1,
+            "name": "Scania"
+        },
+        {
+            "id": 2,
+            "name": "Mercedes"
+        },
+        {
+            "id": 3,
+            "name": "Volvo"
+        },
+        {
+            "id": 4,
+            "name": "Volkswagen"
+        }
+    ],
+
+    "VehicleModels": [
+        {
+            "id": 1,
+            "name": "R114",
+            "brand": {
+                "id": 1,
+                "name": "Scania"
+            }
+        },
+        {
+            "id": 2,
+            "name": "P310",
+            "brand": {
+                "id": 1,
+                "name": "Scania"
+            }
+        },
+        {
+            "id": 3,
+            "name": "LS 1634",
+            "brand": {
+                "id": 2,
+                "name": "Mercedes"
+            }
+        },
+        {
+            "id": 4,
+            "name": "25390",
+            "brand": {
+                "id": 4,
+                "name": "Volkswagen"
+            }
+        },
+        {
+            "id": 5,
+            "name": "FH12",
+            "brand": {
+                "id": 3,
+                "name": "Volvo"
+            }
+        }
+    ],
+
+    "Vehicles": [
+        {
+            "id": 1,
+            "licensePlate": "AAA1A111",
+            "modelYear": 2020,
+            "tankCapacity": 500,
+            "vehicleModel": {
+                "id": 1,
+                "name": "R114",
+                "brand": {
+                    "id": 1,
+                    "name": "Scania"
+                }
+            }
+        },
+        {
+            "id": 2,
+            "licensePlate": "BBB1A111",
+            "modelYear": 2019,
+            "tankCapacity": 300,
+            "vehicleModel": {
+                "id": 1,
+                "name": "R114",
+                "brand": {
+                    "id": 1,
+                    "name": "Scania"
+                }
+            }
+        },
+        {
+            "id": 3,
+            "licensePlate": "CCC1A111",
+            "modelYear": 2018,
+            "tankCapacity": 200,
+            "vehicleModel": {
+                "id": 3,
+                "name": "LS 1634",
+                "brand": {
+                    "id": 2,
+                    "name": "Mercedes"
+                }
+            }
+        },
+        {
+            "id": 4,
+            "licensePlate": "DDD1A111",
+            "modelYear": 2000,
+            "tankCapacity": 600,
+            "vehicleModel": {
+                "id": 2,
+                "name": "P310",
+                "brand": {
+                    "id": 1,
+                    "name": "Scania"
+                }
+            }
+        },
+        {
+            "id": 5,
+            "licensePlate": "EEE1A111",
+            "modelYear": 1999,
+            "tankCapacity": 500,
+            "vehicleModel": {
+                "id": 5,
+                "name": "FH12",
+                "brand": {
+                    "id": 3,
+                    "name": "Volvo"
+                }
+            }
+        },
+        {
+            "id": 6,
+            "licensePlate": "FFF1A111",
+            "modelYear": 1998,
+            "tankCapacity": 600,
+            "vehicleModel": {
+                "id": 3,
+                "name": "LS 1634",
+                "brand": {
+                    "id": 2,
+                    "name": "Mercedes"
+                }
+            }
+        },
+        {
+            "id": 7,
+            "licensePlate": "GGG1A111",
+            "modelYear": 2020,
+            "tankCapacity": 400,
+            "vehicleModel": {
+                "id": 3,
+                "name": "LS 1634",
+                "brand": {
+                    "id": 2,
+                    "name": "Mercedes"
+                }
+            }
+        }
+    ],
+
+    "Supplies": [
+        {
+            "id": 1,
+            "moment": "2020-01-01T00:00:00Z",
+            "odometer": 1000,
+            "litersFilled": 60.0,
+            "literValueOfFuel": 3.599,
+            "fullTank": true,
+            "averageConsumption": null,
+            "fuel": "DIESEL_S10",
+            "vehicle": {
+                "id": 1,
+                "licensePlate": "AAA1A111",
+                "modelYear": 2020,
+                "tankCapacity": 500,
+                "vehicleModel": {
+                    "id": 1,
+                    "name": "R114",
+                    "brand": {
+                        "id": 1,
+                        "name": "Scania"
+                    }
+                }
+            }
+        },
+        {
+            "id": 2,
+            "moment": "2020-01-01T00:00:00Z",
+            "odometer": 500,
+            "litersFilled": 90.0,
+            "literValueOfFuel": 3.599,
+            "fullTank": true,
+            "averageConsumption": null,
+            "fuel": "DIESEL_S10",
+            "vehicle": {
+                "id": 1,
+                "licensePlate": "AAA1A111",
+                "modelYear": 2020,
+                "tankCapacity": 500,
+                "vehicleModel": {
+                    "id": 1,
+                    "name": "R114",
+                    "brand": {
+                        "id": 1,
+                        "name": "Scania"
+                    }
+                }
+            }
+        },
+        {
+            "id": 3,
+            "moment": "2020-01-01T00:00:00Z",
+            "odometer": 1300,
+            "litersFilled": 95.0,
+            "literValueOfFuel": 3.599,
+            "fullTank": true,
+            "averageConsumption": null,
+            "fuel": "DIESEL_S10",
+            "vehicle": {
+                "id": 1,
+                "licensePlate": "AAA1A111",
+                "modelYear": 2020,
+                "tankCapacity": 500,
+                "vehicleModel": {
+                    "id": 1,
+                    "name": "R114",
+                    "brand": {
+                        "id": 1,
+                        "name": "Scania"
+                    }
+                }
+            }
+        },
+        {
+            "id": 4,
+            "moment": "2020-01-01T00:00:00Z",
+            "odometer": 2000,
+            "litersFilled": 110.0,
+            "literValueOfFuel": 3.599,
+            "fullTank": true,
+            "averageConsumption": null,
+            "fuel": "DIESEL_S10",
+            "vehicle": {
+                "id": 1,
+                "licensePlate": "AAA1A111",
+                "modelYear": 2020,
+                "tankCapacity": 500,
+                "vehicleModel": {
+                    "id": 1,
+                    "name": "R114",
+                    "brand": {
+                        "id": 1,
+                        "name": "Scania"
+                    }
+                }
+            }
+        },
+        {
+            "id": 5,
+            "moment": "2020-01-01T00:00:00Z",
+            "odometer": 1000,
+            "litersFilled": 80.0,
+            "literValueOfFuel": 3.599,
+            "fullTank": true,
+            "averageConsumption": null,
+            "fuel": "DIESEL_S10",
+            "vehicle": {
+                "id": 2,
+                "licensePlate": "BBB1A111",
+                "modelYear": 2019,
+                "tankCapacity": 300,
+                "vehicleModel": {
+                    "id": 1,
+                    "name": "R114",
+                    "brand": {
+                        "id": 1,
+                        "name": "Scania"
+                    }
+                }
+            }
+        },
+        {
+            "id": 6,
+            "moment": "2020-01-01T00:00:00Z",
+            "odometer": 1500,
+            "litersFilled": 130.0,
+            "literValueOfFuel": 3.599,
+            "fullTank": false,
+            "averageConsumption": null,
+            "fuel": "DIESEL_S10",
+            "vehicle": {
+                "id": 2,
+                "licensePlate": "BBB1A111",
+                "modelYear": 2019,
+                "tankCapacity": 300,
+                "vehicleModel": {
+                    "id": 1,
+                    "name": "R114",
+                    "brand": {
+                        "id": 1,
+                        "name": "Scania"
+                    }
+                }
+            }
+        },
+        {
+            "id": 7,
+            "moment": "2020-01-01T00:00:00Z",
+            "odometer": 910,
+            "litersFilled": 90.0,
+            "literValueOfFuel": 3.599,
+            "fullTank": true,
+            "averageConsumption": null,
+            "fuel": "DIESEL_S10",
+            "vehicle": {
+                "id": 1,
+                "licensePlate": "AAA1A111",
+                "modelYear": 2020,
+                "tankCapacity": 500,
+                "vehicleModel": {
+                    "id": 1,
+                    "name": "R114",
+                    "brand": {
+                        "id": 1,
+                        "name": "Scania"
+                    }
+                }
+            }
+        },
+        {
+            "id": 8,
+            "moment": "2020-01-01T00:00:00Z",
+            "odometer": 905,
+            "litersFilled": 90.0,
+            "literValueOfFuel": 3.599,
+            "fullTank": true,
+            "averageConsumption": null,
+            "fuel": "DIESEL_S10",
+            "vehicle": {
+                "id": 1,
+                "licensePlate": "AAA1A111",
+                "modelYear": 2020,
+                "tankCapacity": 500,
+                "vehicleModel": {
+                    "id": 1,
+                    "name": "R114",
+                    "brand": {
+                        "id": 1,
+                        "name": "Scania"
+                    }
+                }
+            }
+        }
+    ]
+}
