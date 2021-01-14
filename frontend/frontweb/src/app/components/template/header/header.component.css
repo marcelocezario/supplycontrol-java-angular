@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    align-items: center;
+    height: 100px;
+}
+
+.header a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.header .logo {
+    display: flex;
+    max-height: 70px;
+    margin-left: 84px;
+    margin-right: 84px;
+}
+
+.header .tittle-group {
+    font-family: Goldplay-Black;
+}
