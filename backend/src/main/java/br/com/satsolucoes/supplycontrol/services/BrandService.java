@@ -2,20 +2,14 @@ package br.com.satsolucoes.supplycontrol.services;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-
-import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.satsolucoes.supplycontrol.dto.BrandDTO;
 import br.com.satsolucoes.supplycontrol.entities.Brand;
 import br.com.satsolucoes.supplycontrol.repositories.BrandRepository;
-import br.com.satsolucoes.supplycontrol.services.exceptions.DatabaseException;
 import br.com.satsolucoes.supplycontrol.services.exceptions.ResourceNotFoundException;
 
 @Service
