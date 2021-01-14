@@ -14,9 +14,11 @@ INSERT INTO public.tb_vehicle (license_plate, model_year, tank_capacity, model_v
 INSERT INTO public.tb_vehicle (license_plate, model_year, tank_capacity, model_vehicle_id) VALUES ('EEE1A111', 1999, 500, 5);
 INSERT INTO public.tb_vehicle (license_plate, model_year, tank_capacity, model_vehicle_id) VALUES ('FFF1A111', 1998, 600, 3);
 INSERT INTO public.tb_vehicle (license_plate, model_year, tank_capacity, model_vehicle_id) VALUES ('GGG1A111', 2020, 400, 3);
-INSERT INTO public.tb_supply (moment, odometer, liter_value_of_fuel, full_tank, fuel, vehicle_id) VALUES ('2020-01-01T00:00:00Z', 500, '60.', true, 3, 1);
-INSERT INTO public.tb_supply (moment, odometer, liter_value_of_fuel, full_tank, fuel, vehicle_id) VALUES ('2020-01-01T00:00:00Z', 1000, '90.0', false, 3, 1); 
-INSERT INTO public.tb_supply (moment, odometer, liter_value_of_fuel, full_tank, fuel, vehicle_id) VALUES ('2020-01-01T00:00:00Z', 1300, '95.0', true, 3, 1);
-INSERT INTO public.tb_supply (moment, odometer, liter_value_of_fuel, full_tank, fuel, vehicle_id) VALUES ('2020-01-01T00:00:00Z', 2000, '110.0', true, 3, 1); 
-INSERT INTO public.tb_supply (moment, odometer, liter_value_of_fuel, full_tank, fuel, vehicle_id) VALUES ('2020-01-01T00:00:00Z', 1000, '80.0', true, 3, 2);
-INSERT INTO public.tb_supply (moment, odometer, liter_value_of_fuel, full_tank, fuel, vehicle_id) VALUES ('2020-01-01T00:00:00Z', 1500, '130.0', false, 3, 2);
+INSERT INTO public.tb_supply (moment, odometer, liter_value_of_fuel, liters_filled, full_tank, fuel, vehicle_id) VALUES ('2020-01-01T00:00:00Z', 1000, '3.599', '60.', true, 3, 1);
+INSERT INTO public.tb_supply (moment, odometer, liter_value_of_fuel, liters_filled, full_tank, fuel, vehicle_id) VALUES ('2020-01-01T00:00:00Z', 500, '3.599', '90.0', true, 3, 1); 
+INSERT INTO public.tb_supply (moment, odometer, liter_value_of_fuel, liters_filled, full_tank, fuel, vehicle_id) VALUES ('2020-01-01T00:00:00Z', 1300, '3.599', '95.0', true, 3, 1);
+INSERT INTO public.tb_supply (moment, odometer, liter_value_of_fuel, liters_filled, full_tank, fuel, vehicle_id) VALUES ('2020-01-01T00:00:00Z', 2000, '3.599', '110.0', true, 3, 1); 
+INSERT INTO public.tb_supply (moment, odometer, liter_value_of_fuel, liters_filled, full_tank, fuel, vehicle_id) VALUES ('2020-01-01T00:00:00Z', 1000, '3.599', '80.0', true, 3, 2);
+INSERT INTO public.tb_supply (moment, odometer, liter_value_of_fuel, liters_filled, full_tank, fuel, vehicle_id) VALUES ('2020-01-01T00:00:00Z', 1500, '3.599', '130.0', false, 3, 2);
+INSERT INTO public.tb_supply (moment, odometer, liter_value_of_fuel, liters_filled, full_tank, fuel, vehicle_id) VALUES ('2020-01-01T00:00:00Z', 910, '3.599', '90.0', true, 3, 1);
+INSERT INTO public.tb_supply (moment, odometer, liter_value_of_fuel, liters_filled, full_tank, fuel, vehicle_id) VALUES ('2020-01-01T00:00:00Z', 905, '3.599', '90.0', true, 3, 1);
