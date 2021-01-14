@@ -1,0 +1,13 @@
+.sidenav {
+    background-color: rgb(39, 181, 122);
+    width: 200px;
+}
+
+.sidenav .a {
+    color: #FFF;
+    font-family: Goldplay-Regular;
+}
+
+.sidenav i {
+    padding-right: 10px;
+}
