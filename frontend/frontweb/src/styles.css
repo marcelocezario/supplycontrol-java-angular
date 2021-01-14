@@ -1,1 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: Goldplay-Black;
+    src: url(assets/font/Goldplay-Black.otf);
+}
+
+.Goldplay-Black {
+    font-family: Goldplay-Black;
+}
+
+@font-face {
+    font-family: Goldplay-Bold;
+    src: url(assets/font/Goldplay-Bold.otf);
+}
+
+.Goldplay-Bold {
+    font-family: Goldplay-Bold;
+}
+
+@font-face {
+    font-family: Goldplay-Light;
+    src: url(assets/font/Goldplay-Light.otf);
+}
+.Goldplay-Light {
+    font-family: Goldplay-Light;
+}
+
+@font-face {
+    font-family: Goldplay-Medium;
+    src: url(assets/font/Goldplay-Medium.otf);
+}
+
+.Goldplay-Medium {
+    font-family: Goldplay-Medium;
+}
+
+@font-face {
+    font-family: Goldplay-Regular;
+    src: url(assets/font/Goldplay-Regular.otf);
+}
+
+.Goldplay-Regular {
+    font-family: Goldplay-Regular;
+}
+
+@font-face {
+    font-family: Goldplay-SemiBold;
+    src: url(assets/font/Goldplay-SemiBold.otf);
+}
+
+.Goldplay-SemiBold {
+    font-family: Goldplay-SemiBold;
+}
+
+
+html, body { height: 100%;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.teste {
+    background-color: brown;
+    font-family: Goldplay-Bold;
+}
