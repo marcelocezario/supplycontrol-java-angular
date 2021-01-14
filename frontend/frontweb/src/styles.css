@@ -55,3 +55,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .Goldplay-SemiBold {
     font-family: Goldplay-SemiBold;
 }
+
+.green {
+    color: rgb(39, 181, 122);
+}
+
+.blue {
+    color: rgb(6, 72, 116);
+}
+
+.v-middle {
+    vertical-align: middle;
+}
