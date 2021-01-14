@@ -2,20 +2,14 @@ package br.com.satsolucoes.supplycontrol.services;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-
-import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.satsolucoes.supplycontrol.dto.VehicleModelDTO;
 import br.com.satsolucoes.supplycontrol.entities.VehicleModel;
 import br.com.satsolucoes.supplycontrol.repositories.VehicleModelRepository;
-import br.com.satsolucoes.supplycontrol.services.exceptions.DatabaseException;
 import br.com.satsolucoes.supplycontrol.services.exceptions.ResourceNotFoundException;
 
 @Service
@@ -23,11 +17,13 @@ public class VehicleModelService {
 
 	@Autowired
 	private VehicleModelRepository repository;
+	
+	@Autowired
+	private BrandService brandService;
 
 	@Transactional(readOnly = true)
-	public List<VehicleModelDTO> findAll() {
-		List<VehicleModel> list = repository.findAll();
-		return list.stream().map(x -> new VehicleModelDTO(x)).collect(Collectors.toList());
+	public List<VehicleModel> findAll() {
+		return repository.findAll();
 	}
 
 	@Transactional(readOnly = true)
@@ -41,27 +37,22 @@ public class VehicleModelService {
 	}
 
 	public void delete(Long id) {
-		try {
-			repository.deleteById(id);
-		} catch (EmptyResultDataAccessException e) {
-			throw new ResourceNotFoundException(id);
-		} catch (DataIntegrityViolationException e) {
-			throw new DatabaseException(e.getMessage());
-		}
+		findById(id);
+		repository.deleteById(id);
 	}
 
-	public void updateData(VehicleModel entity, VehicleModel obj) {
-		entity.setName(obj.getName());
-		entity.setBrand(obj.getBrand());
+	public VehicleModel update(VehicleModel obj) {
+		VehicleModel newObj = findById(obj.getId());
+		updateData(newObj, obj);
+		return repository.save(newObj);
 	}
-
-	public VehicleModel update(Long id, VehicleModel obj) {
-		try {
-			VehicleModel entity = repository.getOne(id);
-			updateData(entity, obj);
-			return repository.save(entity);
-		} catch (EntityNotFoundException e) {
-			throw new ResourceNotFoundException(id);
-		}
+	
+	public void updateData(VehicleModel newObj, VehicleModel obj) {
+		newObj.setName(obj.getName());
+		newObj.setBrand(obj.getBrand());
+	}
+	
+	public VehicleModel fromDTO(VehicleModelDTO objDTO) {
+		return new VehicleModel(objDTO.getId(), objDTO.getName(), brandService.fromDTO(objDTO.getBrand()));
 	}
 }
