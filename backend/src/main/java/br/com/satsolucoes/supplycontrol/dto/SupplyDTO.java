@@ -14,6 +14,7 @@ public class SupplyDTO implements Serializable{
 	private Long id;
 	private Instant moment;
 	private Integer odometer;
+	private Double litersFilled;
 	private Double literValueOfFuel;
 	private boolean fullTank;
 	private Double averageConsumption;
@@ -23,11 +24,12 @@ public class SupplyDTO implements Serializable{
 	public SupplyDTO() {
 	}
 
-	public SupplyDTO(Long id, Instant moment, Integer odometer, Double literValueOfFuel, boolean fullTank,
+	public SupplyDTO(Long id, Instant moment, Integer odometer, Double litersFilled, Double literValueOfFuel, boolean fullTank,
 			Double averageConsumption, Fuel fuel, Vehicle vehicle) {
 		this.id = id;
 		this.moment = moment;
 		this.odometer = odometer;
+		this.litersFilled = litersFilled;
 		this.literValueOfFuel = literValueOfFuel;
 		this.fullTank = fullTank;
 		this.averageConsumption = averageConsumption;
@@ -39,6 +41,7 @@ public class SupplyDTO implements Serializable{
 		id = entity.getId();
 		moment = entity.getMoment();
 		odometer = entity.getOdometer();
+		litersFilled = entity.getLitersFilled();
 		literValueOfFuel = entity.getLiterValueOfFuel();
 		fullTank = entity.isFullTank();
 		averageConsumption = entity.getAverageConsumption();
@@ -68,6 +71,14 @@ public class SupplyDTO implements Serializable{
 
 	public void setOdometer(Integer odometer) {
 		this.odometer = odometer;
+	}
+	
+	public Double getLitersFilled() {
+		return litersFilled;
+	}
+
+	public void setLitersFilled(Double litersFilled) {
+		this.litersFilled = litersFilled;
 	}
 
 	public Double getLiterValueOfFuel() {

@@ -51,6 +51,7 @@ public class SupplyService {
 		newObj.setAverageConsumption(obj.getAverageConsumption());
 		newObj.setFuel(obj.getFuel());
 		newObj.setFullTank(obj.isFullTank());
+		newObj.setLitersFilled(obj.getLitersFilled());
 		newObj.setLiterValueOfFuel(obj.getLiterValueOfFuel());
 		newObj.setMoment(obj.getMoment());
 		newObj.setOdometer(obj.getOdometer());
@@ -58,7 +59,8 @@ public class SupplyService {
 	}
 
 	public Supply fromDTO(SupplyDTO objDTO) {
-		return new Supply(objDTO.getId(), objDTO.getMoment(), objDTO.getOdometer(), objDTO.getLiterValueOfFuel(),
-				objDTO.isFullTank(), objDTO.getFuel(), vehicleService.fromDTO(objDTO.getVehicle()));
+		return new Supply(objDTO.getId(), objDTO.getMoment(), objDTO.getOdometer(), objDTO.getLitersFilled(),
+				objDTO.getLiterValueOfFuel(), objDTO.isFullTank(), objDTO.getFuel(),
+				vehicleService.fromDTO(objDTO.getVehicle()));
 	}
 }

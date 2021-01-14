@@ -15,33 +15,35 @@ import br.com.satsolucoes.supplycontrol.entities.enums.Fuel;
 
 @Entity
 @Table(name = "tb_supply")
-public class Supply implements Serializable{
+public class Supply implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Instant moment;
 	private Integer odometer;
+	private Double litersFilled;
 	private Double literValueOfFuel;
 	private boolean fullTank;
 	private Double averageConsumption;
 	private Fuel fuel;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "vehicle_id")
 	private Vehicle vehicle;
-	
+
 	public Supply() {
 	}
 
-	public Supply(Long id, Instant moment, Integer odometer, Double literValueOfFuel, boolean fullTank, Fuel fuel,
-			Vehicle vehicle) {
+	public Supply(Long id, Instant moment, Integer odometer, Double litersFilled, Double literValueOfFuel,
+			boolean fullTank, Fuel fuel, Vehicle vehicle) {
 		super();
 		this.id = id;
 		this.moment = moment;
 		this.odometer = odometer;
+		this.litersFilled = litersFilled;
 		this.literValueOfFuel = literValueOfFuel;
 		this.fullTank = fullTank;
 		this.fuel = fuel;
@@ -72,6 +74,14 @@ public class Supply implements Serializable{
 		this.odometer = odometer;
 	}
 
+	public Double getLitersFilled() {
+		return litersFilled;
+	}
+
+	public void setLitersFilled(Double litersFilled) {
+		this.litersFilled = litersFilled;
+	}
+
 	public Double getLiterValueOfFuel() {
 		return literValueOfFuel;
 	}
@@ -91,7 +101,7 @@ public class Supply implements Serializable{
 	public Double getAverageConsumption() {
 		return averageConsumption;
 	}
-	
+
 	public void setAverageConsumption(Double averageConsumption) {
 		this.averageConsumption = averageConsumption;
 	}
@@ -99,19 +109,19 @@ public class Supply implements Serializable{
 	public Fuel getFuel() {
 		return fuel;
 	}
-	
+
 	public void setFuel(Fuel fuel) {
 		this.fuel = fuel;
 	}
-	
+
 	public Vehicle getVehicle() {
 		return vehicle;
 	}
-	
+
 	public void setVehicle(Vehicle vehicle) {
 		this.vehicle = vehicle;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
