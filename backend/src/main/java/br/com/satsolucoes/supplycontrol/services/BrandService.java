@@ -20,47 +20,42 @@ import br.com.satsolucoes.supplycontrol.services.exceptions.ResourceNotFoundExce
 
 @Service
 public class BrandService {
-	
+
 	@Autowired
 	private BrandRepository repository;
-	
+
 	@Transactional(readOnly = true)
-	public List<BrandDTO> findAll() {
-		List<Brand> list = repository.findAll();
-		return list.stream().map(x -> new BrandDTO(x)).collect(Collectors.toList());
+	public List<Brand> findAll() {
+		return repository.findAll();
 	}
-	
+
 	@Transactional(readOnly = true)
 	public Brand findById(Long id) {
 		Optional<Brand> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
-	
+
 	public Brand insert(Brand obj) {
 		return repository.save(obj);
 	}
-	
+
 	public void delete(Long id) {
-		try {
-			repository.deleteById(id);
-		} catch (EmptyResultDataAccessException e) {
-			throw new ResourceNotFoundException(id);
-		} catch (DataIntegrityViolationException e) {
-			throw new DatabaseException(e.getMessage());
-		}
+		findById(id);
+		repository.deleteById(id);
 	}
-	
-	public void updateData(Brand entity, Brand obj) {
-		entity.setName(obj.getName());
+
+	public Brand update(Brand obj) {
+		Brand newObj = findById(obj.getId());
+		updateData(newObj, obj);
+		return repository.save(newObj);
 	}
-	
-	public Brand update(Long id, Brand obj) {
-		try {
-			Brand entity = repository.getOne(id);
-			updateData(entity, obj);
-			return repository.save(entity);
-		} catch (EntityNotFoundException e) {
-			throw new ResourceNotFoundException(id);
-		}
+
+	public void updateData(Brand newObj, Brand obj) {
+		newObj.setName(obj.getName());
 	}
+
+	public Brand fromDTO(BrandDTO objDTO) {
+		return new Brand(objDTO.getId(), objDTO.getName());
+	}
+
 }

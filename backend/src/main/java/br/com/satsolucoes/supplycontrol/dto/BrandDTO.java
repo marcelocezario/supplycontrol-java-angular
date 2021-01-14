@@ -1,9 +1,6 @@
 package br.com.satsolucoes.supplycontrol.dto;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import br.com.satsolucoes.supplycontrol.entities.Brand;
 
