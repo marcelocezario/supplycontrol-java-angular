@@ -12,16 +12,18 @@ public class VehicleDTO implements Serializable{
 	private Long id;
 	private String licensePlate;
 	private Integer modelYear;
+	private Integer tankCapacity;
 	private VehicleModelDTO vehicleModel;
 	
 	public VehicleDTO() {
 	}
 
-	public VehicleDTO(Long id, String licensePlate, Integer modelYear, VehicleModel vehicleModel) {
+	public VehicleDTO(Long id, String licensePlate, Integer modelYear, Integer tankCapacity, VehicleModel vehicleModel) {
 		super();
 		this.id = id;
 		this.licensePlate = licensePlate;
 		this.modelYear = modelYear;
+		this.tankCapacity = tankCapacity;
 		this.vehicleModel = new VehicleModelDTO(vehicleModel);
 	}
 	
@@ -29,6 +31,7 @@ public class VehicleDTO implements Serializable{
 		id = entity.getId();
 		licensePlate = entity.getLicensePlate();
 		modelYear = entity.getModelYear();
+		tankCapacity = entity.getTankCapacity();
 		vehicleModel = new VehicleModelDTO(entity.getVehicleModel());
 	}
 
@@ -54,6 +57,14 @@ public class VehicleDTO implements Serializable{
 
 	public void setModelYear(Integer modelYear) {
 		this.modelYear = modelYear;
+	}
+	
+	public Integer getTankCapacity() {
+		return tankCapacity;
+	}
+
+	public void setTankCapacity(Integer tankCapacity) {
+		this.tankCapacity = tankCapacity;
 	}
 
 	public VehicleModelDTO getVehicleModel() {

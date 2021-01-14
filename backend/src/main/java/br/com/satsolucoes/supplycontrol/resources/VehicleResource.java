@@ -21,25 +21,25 @@ import br.com.satsolucoes.supplycontrol.entities.Vehicle;
 import br.com.satsolucoes.supplycontrol.services.VehicleService;
 
 @RestController
-@RequestMapping(value="/vehicles")
+@RequestMapping(value = "/vehicles")
 public class VehicleResource {
-	
+
 	@Autowired
 	private VehicleService service;
-	
+
 	@GetMapping
 	public ResponseEntity<List<VehicleDTO>> findAll() {
 		List<Vehicle> list = service.findAll();
 		List<VehicleDTO> listDto = list.stream().map(x -> new VehicleDTO(x)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDto);
 	}
-	
+
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<VehicleDTO> findById(@PathVariable Long id) {
 		Vehicle obj = service.findById(id);
 		return ResponseEntity.ok().body(new VehicleDTO(obj));
 	}
-	
+
 	@PostMapping
 	public ResponseEntity<Void> insert(@RequestBody VehicleDTO objDTO) {
 		Vehicle obj = service.fromDTO(objDTO);
@@ -47,13 +47,13 @@ public class VehicleResource {
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
-	
+
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<Void> delete(@PathVariable Long id) {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}
-	
+
 	@PutMapping(value = "/{id}")
 	public ResponseEntity<Void> update(@RequestBody VehicleDTO objDTO, @PathVariable Long id) {
 		Vehicle obj = service.fromDTO(objDTO);

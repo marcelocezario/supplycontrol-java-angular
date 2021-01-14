@@ -23,6 +23,7 @@ public class Vehicle implements Serializable{
 	private Long id;
 	private String licensePlate;
 	private Integer modelYear;
+	private Integer tankCapacity;
 	
 	@ManyToOne
 	@JoinColumn(name = "modelVehicle_id")
@@ -34,11 +35,12 @@ public class Vehicle implements Serializable{
 	public Vehicle() {
 	}
 
-	public Vehicle(Long id, String licensePlate, Integer modelYear, VehicleModel vehicleModel) {
+	public Vehicle(Long id, String licensePlate, Integer modelYear, Integer tankCapacity, VehicleModel vehicleModel) {
 		super();
 		this.id = id;
 		this.licensePlate = licensePlate;
 		this.modelYear = modelYear;
+		this.tankCapacity = tankCapacity;
 		this.vehicleModel = vehicleModel;
 	}
 
@@ -66,6 +68,14 @@ public class Vehicle implements Serializable{
 		this.modelYear = modelYear;
 	}
 	
+	public Integer getTankCapacity() {
+		return tankCapacity;
+	}
+
+	public void setTankCapacity(Integer tankCapacity) {
+		this.tankCapacity = tankCapacity;
+	}
+
 	public VehicleModel getVehicleModel() {
 		return vehicleModel;
 	}

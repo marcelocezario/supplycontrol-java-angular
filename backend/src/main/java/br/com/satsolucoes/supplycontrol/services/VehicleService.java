@@ -17,10 +17,9 @@ public class VehicleService {
 
 	@Autowired
 	private VehicleRepository repository;
-	
+
 	@Autowired
 	private VehicleModelService vehicleModelService;
-
 
 	@Transactional(readOnly = true)
 	public List<Vehicle> findAll() {
@@ -51,10 +50,12 @@ public class VehicleService {
 	public void updateData(Vehicle newObj, Vehicle obj) {
 		newObj.setLicensePlate(obj.getLicensePlate());
 		newObj.setModelYear(obj.getModelYear());
+		newObj.setTankCapacity(obj.getTankCapacity());
 		newObj.setVehicleModel(obj.getVehicleModel());
 	}
 
 	public Vehicle fromDTO(VehicleDTO objDTO) {
-		return new Vehicle(objDTO.getId(), objDTO.getLicensePlate(), objDTO.getModelYear(), vehicleModelService.fromDTO(objDTO.getVehicleModel()));
+		return new Vehicle(objDTO.getId(), objDTO.getLicensePlate(), objDTO.getModelYear(), objDTO.getTankCapacity(),
+				vehicleModelService.fromDTO(objDTO.getVehicleModel()));
 	}
 }
