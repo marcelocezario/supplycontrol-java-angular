@@ -1,3 +1,6 @@
+import { Router, ActivatedRoute } from '@angular/router';
+import { SupplyService } from './../supply.service';
+import { Supply } from './../supply.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SupplyDeleteComponent implements OnInit {
 
-  constructor() { }
+  supply: Supply
+
+  constructor(private supplyService: SupplyService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.supplyService.readById(id).subscribe((supply) => {
+      this.supply = supply;
+    })
   }
 
+  deleteSupply(): void {
+    this.supplyService.delete(this.supply.id).subscribe(() => {
+      this.supplyService.showMessage("Abastecimento excluído com sucesso!", true) 
+      this.router.navigate(["/supplies"]);
+    })
+  }
+
+  cancel(): void {
+    this.router.navigate(['/supplies'])
+  }
 }

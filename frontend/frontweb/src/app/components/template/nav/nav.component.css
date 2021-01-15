@@ -1,11 +1,15 @@
 .sidenav {
     background-color: rgb(39, 181, 122);
-    width: 200px;
+    width: 180px;
+  
+    height: calc(100vh - 215px);
+   
 }
 
 .sidenav a {
     color: #FFF;
-    font-family: Goldplay-Regular;
+    font-family: Goldplay-Light;
+    font-size: 1rem;
 }
 
 .sidenav i {

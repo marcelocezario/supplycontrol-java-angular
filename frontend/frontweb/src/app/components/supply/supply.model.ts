@@ -3,7 +3,7 @@ export interface Supply {
     moment: string
     odometer: number
     litersFilled: number
-    literValuerOfFuel: number
+    literValueOfFuel: number
     fullTank: boolean
     averageConsumption?: number
     fuel: number

@@ -1,4 +1,6 @@
+import { HeaderService } from './../../components/template/header/header.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-vehiclemodel-crud',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VehiclemodelCrudComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private headerService: HeaderService) {
+    headerService.headerData = {
+      title: 'Cadastro de Modelos de Veículos',
+      icon: 'toc',
+      routeUrl: '/vehicleModels'
+    }
+  }
 
   ngOnInit(): void {
   }
 
+  navigateToVehiclemodelCreate(): void {
+    this.router.navigate(['/vehiclemodels/create'])
+  }
 }

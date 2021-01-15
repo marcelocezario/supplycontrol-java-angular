@@ -1,4 +1,6 @@
+import { VehicleService } from './../vehicle.service';
 import { Component, OnInit } from '@angular/core';
+import { Vehicle } from '../vehicle.model';
 
 @Component({
   selector: 'app-vehicle-read',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VehicleReadComponent implements OnInit {
 
-  constructor() { }
+  vehicles: Vehicle[]
+  displayedColumns = ['id', 'licensePlate', 'modelYear', 'tankCapacity', 'action']
+
+  constructor(private vehicleService: VehicleService) { }
 
   ngOnInit(): void {
+    this.vehicleService.read().subscribe(vehicles => {
+      this.vehicles = vehicles
+      console.log(vehicles)
+    })
   }
 
 }
+
