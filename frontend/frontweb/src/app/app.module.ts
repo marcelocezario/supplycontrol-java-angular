@@ -17,6 +17,7 @@ import { HomeComponent } from './views/home/home.component';
 import { BrandCrudComponent } from './views/brand-crud/brand-crud.component';
 import { BrandCreateComponent } from './components/brand/brand-create/brand-create.component';
 import { MatButtonModule } from '@angular/material/button'
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MatButtonModule } from '@angular/material/button'
     MatSidenavModule,
     MatListModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
