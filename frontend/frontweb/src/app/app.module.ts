@@ -24,7 +24,6 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { BrandReadComponent } from './components/brand/brand-read/brand-read.component';
-import { BrandRead2Component } from './components/brand/brand-read2/brand-read2.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -43,8 +42,7 @@ registerLocaleData(localePt);
     HomeComponent,
     BrandCrudComponent,
     BrandCreateComponent,
-    BrandReadComponent,
-    BrandRead2Component
+    BrandReadComponent
   ],
   imports: [
     BrowserModule,
