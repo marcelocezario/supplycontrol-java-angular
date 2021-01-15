@@ -30,28 +30,40 @@ export class BrandService {
     );
   }
 
-  errorHandler(e: any): Observable<any> {
-    this.showMessage('Ocorreu um erro!', true)
-    return EMPTY
-
-  }
-
   read(): Observable<Brand[]> {
-    return this.http.get<Brand[]>(this.baseUrl)
+    return this.http.get<Brand[]>(this.baseUrl).pipe(
+      map(obj => obj),
+      catchError(e => this.errorHandler(e))
+    );
   }
 
   readById(id: string): Observable<Brand> {
     const url = `${this.baseUrl}/${id}`
-    return this.http.get<Brand>(url)
+    return this.http.get<Brand>(url).pipe(
+      map(obj => obj),
+      catchError(e => this.errorHandler(e))
+    );
   }
 
   update(brand: Brand): Observable<Brand> {
     const url = `${this.baseUrl}/${brand.id}`
-    return this.http.put<Brand>(url, brand)
+    return this.http.put<Brand>(url, brand).pipe(
+      map(obj => obj),
+      catchError(e => this.errorHandler(e))
+    );
   }
 
   delete(id: number): Observable<Brand> {
     const url = `${this.baseUrl}/${id}`
-    return this.http.delete<Brand>(url)
+    return this.http.delete<Brand>(url).pipe(
+      map(obj => obj),
+      catchError(e => this.errorHandler(e))
+    );
+  }
+
+  errorHandler(e: any): Observable<any> {
+    this.showMessage('Ocorreu um erro!', true)
+    return EMPTY
+
   }
 }
