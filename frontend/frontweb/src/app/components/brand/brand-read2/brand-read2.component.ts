@@ -1,8 +1,9 @@
+import { Brand } from './../brand.model';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
-import { BrandRead2DataSource, BrandRead2Item } from './brand-read2-datasource';
+import { BrandRead2DataSource } from './brand-read2-datasource';
 
 @Component({
   selector: 'app-brand-read2',
@@ -12,7 +13,7 @@ import { BrandRead2DataSource, BrandRead2Item } from './brand-read2-datasource';
 export class BrandRead2Component implements AfterViewInit, OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatTable) table: MatTable<BrandRead2Item>;
+  @ViewChild(MatTable) table: MatTable<Brand>;
   dataSource: BrandRead2DataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
