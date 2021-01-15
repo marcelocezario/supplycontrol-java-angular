@@ -10,7 +10,7 @@ import { Vehiclemodel } from './vehiclemodel.model';
 })
 export class VehiclemodelService {
 
-  baseUrl = "http://localhost:8080/vehiclemodels"
+  baseUrl = "https://supplycontrol.herokuapp.com/vehiclemodels"
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 
