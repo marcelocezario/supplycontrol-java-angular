@@ -1,1 +1,20 @@
-<p>vehicle-delete works!</p>
+<mat-card>
+    <mat-card-title>Confirmar exclusão de  Veículo</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input disabled matInput placeholder="Placa" [value]="vehicle.licensePlate" name="licensePlate">
+        </mat-form-field>
+        <mat-form-field>
+            <input disabled matInput placeholder="Ano modelo" [value]="vehicle.modelYear" name="modelYear">
+        </mat-form-field>
+        <mat-form-field>
+            <input disabled matInput placeholder="Capacidade do tanque" [value]="vehicle.tankCapacity" name="tankCapacity">
+        </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="deleteVehicle()" color="warn">
+        Deletar
+    </button>
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>

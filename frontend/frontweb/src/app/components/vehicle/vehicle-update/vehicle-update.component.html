@@ -1,1 +1,20 @@
-<p>vehicle-update works!</p>
+<mat-card>
+    <mat-card-title>Editar Veículo</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Placa" [(ngModel)]="vehicle.licensePlate" name="licensePlate">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Ano modelo" [(ngModel)]="vehicle.modelYear" name="modelYear">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Capacidade do tanque" [(ngModel)]="vehicle.tankCapacity" name="tankCapacity">
+        </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="updateVehicle()" color="primary">
+        Atualizar
+    </button>
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>

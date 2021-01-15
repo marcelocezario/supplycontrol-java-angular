@@ -1,1 +1,39 @@
-<p>supply-update works!</p>
+<mat-card>
+    <mat-card-title>Editar abastecimento</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Momento" [(ngModel)]="supply.moment" name="moment">
+        </mat-form-field>
+    </form>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Odometro" [(ngModel)]="supply.odometer" name="odometer">
+        </mat-form-field>
+    </form>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Litragem abastecida" [(ngModel)]="supply.listersFilled" name="listersFilled">
+        </mat-form-field>
+    </form>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Valor por litro do combustível" [(ngModel)]="supply.literValueOfFuel" name="literValueOfFuel">
+        </mat-form-field>
+    </form>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Tanque cheio" [(ngModel)]="supply.fullTank" name="fullTank">
+        </mat-form-field>
+    </form>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Combustível" [(ngModel)]="supply.fuel" name="fuel">
+        </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="updateSupply()" color="primary">
+        Atualizar
+    </button>
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>
