@@ -23,7 +23,7 @@ export class BrandDeleteComponent implements OnInit {
 
   deleteBrand(): void {
     this.brandService.delete(this.brand.id).subscribe(() => {
-      this.brandService.showMessage("Marca excluída com sucesso!")
+      this.brandService.showMessage("Marca excluída com sucesso!", true) 
       this.router.navigate(["/brands"]);
     })
   }
