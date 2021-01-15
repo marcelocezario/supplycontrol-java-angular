@@ -15,6 +15,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { HomeComponent } from './views/home/home.component';
 import { BrandCrudComponent } from './views/brand-crud/brand-crud.component';
+import { BrandCreateComponent } from './components/brand/brand-create/brand-create.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { BrandCrudComponent } from './views/brand-crud/brand-crud.component';
     FooterComponent,
     NavComponent,
     HomeComponent,
-    BrandCrudComponent
+    BrandCrudComponent,
+    BrandCreateComponent
   ],
   imports: [
     BrowserModule,
