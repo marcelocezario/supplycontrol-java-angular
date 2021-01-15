@@ -21,7 +21,7 @@ export class VehicleUpdateComponent implements OnInit {
     })
   }
 
-  updateBrand(): void {
+  updateVehicle(): void {
     this.vehicleService.update(this.vehicle).subscribe(() => {
       this.vehicleService.showMessage('Veículo atualizado com sucesso!');
       this.router.navigate(['/vehicles']);

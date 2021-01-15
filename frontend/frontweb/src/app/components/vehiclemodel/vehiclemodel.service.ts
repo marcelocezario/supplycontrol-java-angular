@@ -10,7 +10,7 @@ import { Vehiclemodel } from './vehiclemodel.model';
 })
 export class VehiclemodelService {
 
-  baseUrl = "http://localhost:3001/vehiclemodels"
+  baseUrl = "http://localhost:8080/vehiclemodels"
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 

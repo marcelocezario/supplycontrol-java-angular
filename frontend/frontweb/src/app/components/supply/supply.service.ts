@@ -10,7 +10,7 @@ import { Supply } from './supply.model';
 })
 export class SupplyService {
 
-  baseUrl = "http://localhost:3001/supplies"
+  baseUrl = "http://localhost:8080/supplies"
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 
