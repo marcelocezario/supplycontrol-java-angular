@@ -24,4 +24,8 @@ export class BrandService {
   create(brand: Brand): Observable<Brand> {
     return this.http.post<Brand>(this.baseUrl, brand)
   }
+
+  read(): Observable<Brand[]> {
+    return this.http.get<Brand[]>(this.baseUrl)
+  }
 }
