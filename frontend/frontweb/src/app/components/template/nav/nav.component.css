@@ -3,11 +3,16 @@
     width: 200px;
 }
 
-.sidenav .a {
+.sidenav a {
     color: #FFF;
     font-family: Goldplay-Regular;
 }
 
 .sidenav i {
     padding-right: 10px;
+}
+
+.content {
+    padding: 16px;
+    background-color: #FFF;
 }
