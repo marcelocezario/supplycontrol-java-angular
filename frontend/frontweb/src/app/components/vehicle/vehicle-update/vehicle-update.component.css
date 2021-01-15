@@ -1,3 +1,7 @@
+mat-card-title {
+    font-family: Goldplay-Bold;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -5,4 +9,6 @@ form {
 
 button {
     margin: 10px;
+    font-family: Goldplay-Regular;
 }
+
