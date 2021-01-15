@@ -30,6 +30,7 @@ import { MatSortModule } from '@angular/material/sort';
 
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData }from '@angular/common';
+import { BrandUpdateComponent } from './components/brand/brand-update/brand-update.component';
 
 registerLocaleData(localePt);
 
@@ -42,7 +43,8 @@ registerLocaleData(localePt);
     HomeComponent,
     BrandCrudComponent,
     BrandCreateComponent,
-    BrandReadComponent
+    BrandReadComponent,
+    BrandUpdateComponent
   ],
   imports: [
     BrowserModule,
