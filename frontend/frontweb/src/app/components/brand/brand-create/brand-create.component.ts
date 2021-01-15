@@ -1,6 +1,7 @@
 import { BrandService } from './../brand.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Brand } from '../brand.model';
 
 @Component({
   selector: 'app-brand-create',
@@ -9,6 +10,10 @@ import { Router } from '@angular/router';
 })
 export class BrandCreateComponent implements OnInit {
 
+  brand: Brand = {
+    name: ''
+  }
+
   constructor(private brandService: BrandService,
     private router: Router) { }
 
@@ -16,7 +21,10 @@ export class BrandCreateComponent implements OnInit {
   }
 
   createBrand(): void {
-    this.brandService.showMessage('Marca criada com sucesso!')
+    this.brandService.create(this.brand).subscribe(() => {
+      this.brandService.showMessage('Marca criada com sucesso!')
+      this.router.navigate(['/brands'])
+    })
   }
 
   cancel(): void {
