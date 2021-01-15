@@ -28,4 +28,14 @@ export class BrandService {
   read(): Observable<Brand[]> {
     return this.http.get<Brand[]>(this.baseUrl)
   }
+
+  readById(id: string): Observable<Brand> {
+    const url = `${this.baseUrl}/${id}`
+    return this.http.get<Brand>(url)
+  }
+
+  update(brand: Brand): Observable<Brand>{
+    const url = `${this.baseUrl}/${brand.id}`
+    return this.http.put<Brand>(url, brand)
+  }
 }
