@@ -13,8 +13,8 @@ export class VehicleCreateComponent implements OnInit {
 
   vehicle: Vehicle = {
     licensePlate: '',
-    modelYear: 0,
-    tankCapacity: 0
+    modelYear: null,
+    tankCapacity: null
   }
 
   constructor(private vehicleService: VehicleService,

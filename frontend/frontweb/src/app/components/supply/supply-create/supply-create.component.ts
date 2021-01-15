@@ -12,12 +12,12 @@ export class SupplyCreateComponent implements OnInit {
 
   supply: Supply = {
     moment: '',
-    odometer: 0,
-    litersFilled: 0,
-    literValueOfFuel: 0,
+    odometer: null,
+    litersFilled: null,
+    literValueOfFuel: null,
     fullTank: true,
-    averageConsumption: 0,
-    fuel: 0
+    averageConsumption: null,
+    fuel: null
   }
 
   constructor(private supplyService: SupplyService,
