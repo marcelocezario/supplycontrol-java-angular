@@ -34,8 +34,13 @@ export class BrandService {
     return this.http.get<Brand>(url)
   }
 
-  update(brand: Brand): Observable<Brand>{
+  update(brand: Brand): Observable<Brand> {
     const url = `${this.baseUrl}/${brand.id}`
     return this.http.put<Brand>(url, brand)
+  }
+
+  delete(id: number): Observable<Brand> {
+    const url = `${this.baseUrl}/${id}`
+    return this.http.delete<Brand>(url)
   }
 }

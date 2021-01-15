@@ -1,3 +1,4 @@
+import { BrandDeleteComponent } from './components/brand/brand-delete/brand-delete.component';
 import { BrandUpdateComponent } from './components/brand/brand-update/brand-update.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -21,6 +22,10 @@ const routes: Routes = [{
 {
   path: "brands/update/:id",
   component: BrandUpdateComponent
+},
+{
+  path: "brands/delete/:id",
+  component: BrandDeleteComponent
 }
 ];
 

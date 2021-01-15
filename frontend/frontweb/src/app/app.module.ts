@@ -31,6 +31,7 @@ import { MatSortModule } from '@angular/material/sort';
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData }from '@angular/common';
 import { BrandUpdateComponent } from './components/brand/brand-update/brand-update.component';
+import { BrandDeleteComponent } from './components/brand/brand-delete/brand-delete.component';
 
 registerLocaleData(localePt);
 
@@ -44,7 +45,8 @@ registerLocaleData(localePt);
     BrandCrudComponent,
     BrandCreateComponent,
     BrandReadComponent,
-    BrandUpdateComponent
+    BrandUpdateComponent,
+    BrandDeleteComponent
   ],
   imports: [
     BrowserModule,
