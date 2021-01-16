@@ -39,6 +39,7 @@ public class SupplyService {
 		return repository.findByVehicleOrderByOdometerDesc(vehicle);
 	}
 
+	@Transactional(readOnly = true)
 	public Supply findLastSupplyWithFullTank(Supply supply) {
 		for (Supply x : findByVehicleOrderByOdometerDesc(supply.getVehicle())) {
 			if (supply.getOdometer() > x.getOdometer() && x.isFullTank()) {
@@ -48,6 +49,7 @@ public class SupplyService {
 		return null;
 	}
 
+	@Transactional(readOnly = true)
 	public Supply findNextSupplyWithFullTank(Supply supply) {
 		Supply obj = null;
 		for (Supply x : findByVehicleOrderByOdometerDesc(supply.getVehicle())) {
@@ -62,6 +64,7 @@ public class SupplyService {
 		return obj;
 	}
 
+	@Transactional(readOnly = true)
 	public Double sumLitersFilledInTheInterval(Supply supply, Supply lastSupplyFullTank) {
 		Double liters = repository.sumLitersFilledInTheInterval(supply.getVehicle(), lastSupplyFullTank.getOdometer(),
 				supply.getOdometer());
@@ -73,6 +76,7 @@ public class SupplyService {
 		return liters;
 	}
 
+	@Transactional
 	public Supply insert(Supply obj) {
 		obj.setVehicle(vehicleService.findById(obj.getVehicle().getId()));
 
@@ -89,11 +93,13 @@ public class SupplyService {
 		}
 	}
 
+	@Transactional
 	public void delete(Long id) {
 		findById(id);
 		repository.deleteById(id);
 	}
 
+	@Transactional
 	public Supply update(Supply obj) {
 		Supply newObj = findById(obj.getId());
 		obj.setVehicle(vehicleService.findById(obj.getVehicle().getId()));
@@ -147,5 +153,4 @@ public class SupplyService {
 	public List<Supply> findByMomentBetween(Instant initialDate, Instant finalDate) {
 		return repository.findByMomentBetween(initialDate, finalDate);
 	}
-
 }

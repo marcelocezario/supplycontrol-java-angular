@@ -16,12 +16,11 @@ import br.com.satsolucoes.supplycontrol.entities.Vehicle;
 public interface SupplyRepository extends JpaRepository<Supply, Long> {
 
 	@Transactional(readOnly = true)
-	List<Supply> findByVehicleOrderByOdometerDesc(@Param("Vehicle") Vehicle vehicle);
+	List<Supply> findByVehicleOrderByOdometerDesc(Vehicle vehicle);
 
 	@Transactional(readOnly = true)
 	@Query("SELECT DISTINCT sum(obj.litersFilled) FROM Supply obj WHERE obj.vehicle LIKE :vehicle AND obj.odometer > :odometerMin AND obj.odometer < :odometerMax")
-	Double sumLitersFilledInTheInterval(@Param("vehicle") Vehicle vehicle, @Param("odometerMin") Integer odometerMin,
-			@Param("odometerMax") Integer odometerMax);
+	Double sumLitersFilledInTheInterval(Vehicle vehicle, Integer odometerMin, Integer odometerMax);
 
 	@Transactional(readOnly = true)
 	List<Supply> findByMomentBetween(Instant initialDate, Instant finalDate);
