@@ -1,5 +1,6 @@
 package br.com.satsolucoes.supplycontrol.repositories;
 
+import java.time.Instant;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,11 +14,15 @@ import br.com.satsolucoes.supplycontrol.entities.Vehicle;
 
 @Repository
 public interface SupplyRepository extends JpaRepository<Supply, Long> {
-	
-	List<Supply> findByVehicleOrderByOdometerDesc(@Param("Vehicle") Vehicle vehicle);
-	
-	@Transactional(readOnly=true)
-	@Query("SELECT DISTINCT sum(obj.litersFilled) FROM Supply obj WHERE obj.vehicle LIKE :vehicle AND obj.odometer > :odometerMin AND obj.odometer < :odometerMax")
-	Double sumLitersFilledInTheInterval(@Param("vehicle") Vehicle vehicle, @Param("odometerMin") Integer odometerMin, @Param("odometerMax") Integer odometerMax);
 
+	@Transactional(readOnly = true)
+	List<Supply> findByVehicleOrderByOdometerDesc(@Param("Vehicle") Vehicle vehicle);
+
+	@Transactional(readOnly = true)
+	@Query("SELECT DISTINCT sum(obj.litersFilled) FROM Supply obj WHERE obj.vehicle LIKE :vehicle AND obj.odometer > :odometerMin AND obj.odometer < :odometerMax")
+	Double sumLitersFilledInTheInterval(@Param("vehicle") Vehicle vehicle, @Param("odometerMin") Integer odometerMin,
+			@Param("odometerMax") Integer odometerMax);
+
+	@Transactional(readOnly = true)
+	List<Supply> findByMomentBetween(Instant initialDate, Instant finalDate);
 }

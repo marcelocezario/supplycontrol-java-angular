@@ -1,5 +1,6 @@
 package br.com.satsolucoes.supplycontrol.services;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
@@ -141,6 +142,10 @@ public class SupplyService {
 		if (subSupply != null) {
 			update(subSupply);
 		}
+	}
+
+	public List<Supply> findByMomentBetween(Instant initialDate, Instant finalDate) {
+		return repository.findByMomentBetween(initialDate, finalDate);
 	}
 
 }
