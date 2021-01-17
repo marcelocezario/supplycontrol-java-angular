@@ -1,3 +1,25 @@
+table {
+  width: 100%;
+  font-family: Goldplay-Light;
+}
+
+.edit {
+  margin-right: 20px;
+}
+
+.edit > i {
+  color: #000000;
+}
+
+.delete > i {
+  color: #e35e6b;
+}
+
+
+
+
+
+
 .container {
   display: flex;
   justify-content: center;
