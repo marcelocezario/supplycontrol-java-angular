@@ -23,7 +23,7 @@ public class VehicleModelService {
 
 	@Transactional(readOnly = true)
 	public List<VehicleModel> findAll() {
-		return repository.findAll();
+		return repository.findVehicleModelsWithVehicles();
 	}
 
 	@Transactional(readOnly = true)
