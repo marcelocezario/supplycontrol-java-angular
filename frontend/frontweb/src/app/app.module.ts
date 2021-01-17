@@ -50,6 +50,7 @@ import localePt from '@angular/common/locales/pt';
 
 import { FormsModule } from '@angular/forms';
 import { MenuComponent } from './components/template/menu/menu.component';
+import { BrandCardComponent } from './components/brand/brand-card/brand-card.component';
 
 
 
@@ -82,7 +83,8 @@ registerLocaleData(localePt);
     SupplyCrudComponent,
     VehicleCrudComponent,
     VehiclemodelCrudComponent,
-    MenuComponent
+    MenuComponent,
+    BrandCardComponent
   ],
   imports: [
     BrowserModule,
