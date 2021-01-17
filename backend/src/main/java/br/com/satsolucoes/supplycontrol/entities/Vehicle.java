@@ -86,7 +86,7 @@ public class Vehicle implements Serializable {
 		this.vehicleModel = vehicleModel;
 	}
 
-	public Set<Supply> getSuplies() {
+	public Set<Supply> getSupplies() {
 		return supplies;
 	}
 
