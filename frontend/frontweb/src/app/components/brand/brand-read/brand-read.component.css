@@ -1,12 +1,16 @@
-.container {
-  display: flex;
-  justify-content: center;
+table {
+    width: 100%;
+    font-family: Goldplay-Light;
 }
 
-.list-items {
-  width: 80%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 235px);
-  grid-gap: 20px 15px;
-  justify-content: space-between;
+.edit {
+    margin-right: 20px;
+}
+
+.edit > i {
+    color: #000000;
+}
+
+.delete > i {
+    color: #e35e6b;
 }
