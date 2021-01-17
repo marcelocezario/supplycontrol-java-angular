@@ -1,7 +1,7 @@
-INSERT INTO public.tb_brand (name) VALUES ('Scania');
-INSERT INTO public.tb_brand (name) VALUES ('Mercedes');
-INSERT INTO public.tb_brand (name) VALUES ('Volvo');
-INSERT INTO public.tb_brand (name) VALUES ('Volkswagen');
+INSERT INTO public.tb_brand (name, image_url) VALUES ('Scania', 'https://4.bp.blogspot.com/-G_ElpOmX-kw/W23HRvtfqUI/AAAAAAAAqL4/cOuQIoUV0CQwD6RVHmlMfff20vxPHKP_QCLcBGAs/s1600/Nova-Scania-S450.jpg');
+INSERT INTO public.tb_brand (name, image_url) VALUES ('Mercedes', 'https://lh3.googleusercontent.com/proxy/5cAGM97Tr2SR9ctwd_W5aFixdaaabeLG5URY0XDNN6emQ1oNI0JGTgXtRyMSf6HuodVdoqp2Xc-BK28ddbDwbL_QN8bveJpMTqubD6MXpq9nLg');
+INSERT INTO public.tb_brand (name, image_url) VALUES ('Volvo', 'https://lh3.googleusercontent.com/proxy/86eAtmKHmWizw4Aon52gbAbfB3wE9IMjJckw6eZEJ_lmsSTySw7JupyaOnZmDUV4fopQNhuwYk4naiHTpAV1FpadGJWcDT5du_CVjItJNRxRPw');
+INSERT INTO public.tb_brand (name, image_url) VALUES ('Volkswagen', 'https://s2.glbimg.com/gdLNqTcRTbPbQT5315lEFC00vRg=/0x264:3543x2424/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2017/I/D/PnxWlFRmSaOaVlA2IDOA/img-6208.jpg');
 INSERT INTO public.tb_vehicle_model (name, brand_id) VALUES ('R114', 1);
 INSERT INTO public.tb_vehicle_model (name, brand_id) VALUES ('P310', 1);
 INSERT INTO public.tb_vehicle_model (name, brand_id) VALUES ('LS 1634', 2);
