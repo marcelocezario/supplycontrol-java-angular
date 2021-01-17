@@ -4,6 +4,9 @@
         <mat-form-field>
             <input matInput placeholder="Nome" [(ngModel)]="brand.name" name="name">
         </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Url imagem" [(ngModel)]="brand.imageUrl" name="imageUrl">
+        </mat-form-field>
     </form>
     <button mat-raised-button (click)="createBrand()" color="primary">
         Salvar

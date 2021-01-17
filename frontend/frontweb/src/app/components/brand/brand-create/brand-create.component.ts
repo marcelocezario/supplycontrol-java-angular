@@ -11,7 +11,8 @@ import { Brand } from '../brand.model';
 export class BrandCreateComponent implements OnInit {
 
   brand: Brand = {
-    name: ''
+    name: '',
+    imageUrl: ''
   }
 
   constructor(private brandService: BrandService,

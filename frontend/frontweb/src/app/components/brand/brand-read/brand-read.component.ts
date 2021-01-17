@@ -10,7 +10,7 @@ import { Brand } from '../brand.model';
 export class BrandReadComponent implements OnInit {
 
   brands: Brand[]
-  displayedColumns = ['id', 'name', 'action']
+  displayedColumns = ['id', 'name', 'imageUrl', 'action']
 
   constructor(private brandService: BrandService) { }
 

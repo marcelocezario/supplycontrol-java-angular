@@ -4,6 +4,9 @@
         <mat-form-field>
             <input disabled matInput placeholder="Nome" [value]="brand.name" name="name">
         </mat-form-field>
+        <mat-form-field>
+            <input disabled matInput placeholder="Url imagem" [value]="brand.imageUrl" name="imageUrl">
+        </mat-form-field>
     </form>
     <button mat-raised-button (click)="deleteBrand()" color="warn">
         Deletar
