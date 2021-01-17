@@ -32,7 +32,7 @@ public class Vehicle implements Serializable {
 	private VehicleModel vehicleModel;
 
 	@OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private Set<Supply> suplies;
+	private Set<Supply> supplies;
 
 	public Vehicle() {
 	}
@@ -87,7 +87,7 @@ public class Vehicle implements Serializable {
 	}
 
 	public Set<Supply> getSuplies() {
-		return suplies;
+		return supplies;
 	}
 
 	@Override
