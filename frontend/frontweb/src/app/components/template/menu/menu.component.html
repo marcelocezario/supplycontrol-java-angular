@@ -1,0 +1,35 @@
+<button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+</button>
+<mat-menu class="menu" #menu="matMenu">
+    <a class="a font-regular mat-menu-item" routerLink="/">
+        <i class="material-icons v-middle">
+            home
+        </i>
+        Home
+    </a>
+    <a class="a font-regular mat-menu-item" routerLink="/brands">
+        <i class="material-icons v-middle">
+            local_offer
+        </i>
+        Marcas
+    </a>
+    <a class="a font-regular mat-menu-item" routerLink="/vehiclemodels">
+        <i class="material-icons v-middle">
+            toc
+        </i>
+        Modelos
+    </a>
+    <a class="a font-regular mat-menu-item" routerLink="/vehicles">
+        <i class="material-icons v-middle">
+            local_shipping
+        </i>
+        Veículos
+    </a>
+    <a class="a font-regular mat-menu-item" routerLink="/supplies">
+        <i class="material-icons v-middle">
+            local_gas_station
+        </i>
+        Abastecimentos
+    </a>
+</mat-menu>

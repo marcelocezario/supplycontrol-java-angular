@@ -4,21 +4,12 @@
     height: 100px;
 }
 
-.header a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: rgb(6, 72, 116)
-}
-
 .header .logo {
     display: flex;
     max-height: 70px;
-    margin-left: 84px;
-    margin-right: 84px;
+    margin-left: 10%;
 }
 
-.header .tittle-group {
-    padding-left: 25px;
-    font-family: Goldplay-Black;
+.spacer {
+    flex: 1 1 auto;
 }

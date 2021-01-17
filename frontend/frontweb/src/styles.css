@@ -8,25 +8,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     src: url(assets/font/Goldplay-Black.otf);
 }
 
-.Goldplay-Black {
-    font-family: Goldplay-Black;
-}
-
 @font-face {
     font-family: Goldplay-Bold;
     src: url(assets/font/Goldplay-Bold.otf);
 }
 
-.Goldplay-Bold {
-    font-family: Goldplay-Bold;
-}
-
 @font-face {
     font-family: Goldplay-Light;
     src: url(assets/font/Goldplay-Light.otf);
-}
-.Goldplay-Light {
-    font-family: Goldplay-Light;
 }
 
 @font-face {
@@ -34,17 +23,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     src: url(assets/font/Goldplay-Medium.otf);
 }
 
-.Goldplay-Medium {
-    font-family: Goldplay-Medium;
-}
-
 @font-face {
     font-family: Goldplay-Regular;
     src: url(assets/font/Goldplay-Regular.otf);
-}
-
-.Goldplay-Regular {
-    font-family: Goldplay-Regular;
 }
 
 @font-face {
@@ -52,16 +33,34 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     src: url(assets/font/Goldplay-SemiBold.otf);
 }
 
-.Goldplay-SemiBold {
+.font-black {
+    font-family: Goldplay-Black;
+}
+
+.font-bold {
+    font-family: Goldplay-Bold;
+}
+
+.font-light {
+    font-family: Goldplay-Light;
+}
+
+.font-medium {
+    font-family: Goldplay-Medium;
+}
+
+.font-regular {
+    font-family: Goldplay-Regular;
+}
+
+.font-semiBold {
     font-family: Goldplay-SemiBold;
 }
 
-.green {
-    color: rgb(39, 181, 122);
-}
-
-.blue {
-    color: rgb(6, 72, 116);
+.colors {
+    --sat-color-green: rgb(39, 181, 122);
+    --sat-color-blue: rgb(6, 72, 116);
+    --color-error: #e35e6b;
 }
 
 .v-middle {
@@ -69,10 +68,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .msg-success {
-    background-color: rgb(39, 181, 122);
+    background-color: var(--sat-color-green);
 }
 
 .msg-error {
-    background-color: #e35e6b;
+    background-color: var(--color-error);
     color: #fff
 }
