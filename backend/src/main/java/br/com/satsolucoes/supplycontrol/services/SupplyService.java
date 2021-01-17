@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.satsolucoes.supplycontrol.dto.SupplyDTO;
+import br.com.satsolucoes.supplycontrol.dto.SupplyDTOforSave;
 import br.com.satsolucoes.supplycontrol.entities.Supply;
 import br.com.satsolucoes.supplycontrol.entities.Vehicle;
 import br.com.satsolucoes.supplycontrol.repositories.SupplyRepository;
@@ -126,12 +127,6 @@ public class SupplyService {
 		}
 	}
 
-	public Supply fromDTO(SupplyDTO objDTO) {
-		return new Supply(objDTO.getId(), objDTO.getMoment(), objDTO.getOdometer(), objDTO.getLitersFilled(),
-				objDTO.getLiterValueOfFuel(), objDTO.isFullTank(), objDTO.getFuel(),
-				vehicleService.fromDTO(objDTO.getVehicle()));
-	}
-
 	public Double calculateAverageConsumption(Supply obj) {
 		if (obj.isFullTank()) {
 			Supply lastSupplyFullTank = findLastSupplyWithFullTank(obj);
@@ -152,5 +147,17 @@ public class SupplyService {
 
 	public List<Supply> findByMomentBetween(Instant initialDate, Instant finalDate) {
 		return repository.findByMomentBetween(initialDate, finalDate);
+	}
+
+	public Supply fromDTO(SupplyDTO objDTO) {
+		return new Supply(objDTO.getId(), objDTO.getMoment(), objDTO.getOdometer(), objDTO.getLitersFilled(),
+				objDTO.getLiterValueOfFuel(), objDTO.isFullTank(), objDTO.getFuel(),
+				vehicleService.fromDTO(objDTO.getVehicle()));
+	}
+
+	public Supply fromDTO(SupplyDTOforSave objDTO) {
+		return new Supply(objDTO.getId(), objDTO.getMoment(), objDTO.getOdometer(), objDTO.getLitersFilled(),
+				objDTO.getLiterValueOfFuel(), objDTO.isFullTank(), objDTO.getFuel(),
+				vehicleService.fromDTO(objDTO.getVehicle()));
 	}
 }

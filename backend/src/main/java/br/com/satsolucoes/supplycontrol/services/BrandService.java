@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.satsolucoes.supplycontrol.dto.BrandDTO;
+import br.com.satsolucoes.supplycontrol.dto.BrandDTOforSave;
 import br.com.satsolucoes.supplycontrol.entities.Brand;
 import br.com.satsolucoes.supplycontrol.repositories.BrandRepository;
 import br.com.satsolucoes.supplycontrol.services.exceptions.ResourceNotFoundException;
@@ -50,6 +51,10 @@ public class BrandService {
 	}
 
 	public Brand fromDTO(BrandDTO objDTO) {
+		return new Brand(objDTO.getId(), objDTO.getName(), objDTO.getImageUrl());
+	}
+	
+	public Brand fromDTO(BrandDTOforSave objDTO) {
 		return new Brand(objDTO.getId(), objDTO.getName(), objDTO.getImageUrl());
 	}
 }

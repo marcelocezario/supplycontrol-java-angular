@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import br.com.satsolucoes.supplycontrol.entities.Brand;
 
-public class BrandDTO implements Serializable {
+public class BrandDTOforSave implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -15,12 +15,10 @@ public class BrandDTO implements Serializable {
 	private String imageUrl;
 	private Double totalTraveled;
 	
-	private List<VehicleModelDTOforList> vehicleModels;
-
-	public BrandDTO() {
+	public BrandDTOforSave() {
 	}
 
-	public BrandDTO(Long id, String name, String imageUrl, Double totalTraveled) {
+	public BrandDTOforSave(Long id, String name, String imageUrl, Double totalTraveled) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -28,13 +26,11 @@ public class BrandDTO implements Serializable {
 		this.totalTraveled = totalTraveled;
 	}
 
-	public BrandDTO(Brand entity) {
+	public BrandDTOforSave(Brand entity) {
 		id = entity.getId();
 		name = entity.getName();
 		imageUrl = entity.getImageUrl();
 		totalTraveled = entity.getTotalTraveled();
-		vehicleModels = entity.getVehicleModels().stream().map(x -> new VehicleModelDTOforList(x))
-				.collect(Collectors.toList());
 	}
 
 	public Long getId() {
@@ -67,9 +63,5 @@ public class BrandDTO implements Serializable {
 
 	public void setTotalTraveled(Double totalTraveled) {
 		this.totalTraveled = totalTraveled;
-	}
-
-	public List<VehicleModelDTOforList> getVehicleModels() {
-		return vehicleModels;
 	}
 }

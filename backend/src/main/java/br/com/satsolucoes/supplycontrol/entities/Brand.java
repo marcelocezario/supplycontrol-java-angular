@@ -61,7 +61,21 @@ public class Brand implements Serializable{
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
-
+	
+	public Double getTotalTraveled() {
+		Double totalTraveled = 0.0;
+		for (VehicleModel mb : vehicleModels) {
+			for (Vehicle v : mb.getVehicles()) {
+				for (Supply s : v.getSupplies()) {
+					if(s.getAverageConsumption() > 0) {
+						totalTraveled += s.getAverageConsumption() * s.getLitersFilled();
+					}
+				}
+			}
+		}
+		return totalTraveled;
+	}
+	
 	public Set<VehicleModel> getVehicleModels() {
 		return vehicleModels;
 	}

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.com.satsolucoes.supplycontrol.dto.SupplyDTO;
+import br.com.satsolucoes.supplycontrol.dto.SupplyDTOforSave;
 import br.com.satsolucoes.supplycontrol.entities.Supply;
 import br.com.satsolucoes.supplycontrol.services.SupplyService;
 
@@ -43,7 +44,7 @@ public class SupplyResource {
 	}
 
 	@PostMapping
-	public ResponseEntity<Void> insert(@RequestBody SupplyDTO objDTO) {
+	public ResponseEntity<Void> insert(@RequestBody SupplyDTOforSave objDTO) {
 		Supply obj = service.fromDTO(objDTO);
 		obj = service.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
@@ -57,7 +58,7 @@ public class SupplyResource {
 	}
 
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<Void> update(@RequestBody SupplyDTO objDTO, @PathVariable Long id) {
+	public ResponseEntity<Void> update(@RequestBody SupplyDTOforSave objDTO, @PathVariable Long id) {
 		Supply obj = service.fromDTO(objDTO);
 		obj.setId(id);
 		obj = service.update(obj);

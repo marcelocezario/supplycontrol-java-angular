@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.com.satsolucoes.supplycontrol.dto.VehicleModelDTO;
+import br.com.satsolucoes.supplycontrol.dto.VehicleModelDTOforSave;
 import br.com.satsolucoes.supplycontrol.entities.VehicleModel;
 import br.com.satsolucoes.supplycontrol.services.VehicleModelService;
 
@@ -41,7 +42,7 @@ public class VehicleModelResource {
 	}
 
 	@PostMapping
-	public ResponseEntity<Void> insert(@RequestBody VehicleModelDTO objDTO) {
+	public ResponseEntity<Void> insert(@RequestBody VehicleModelDTOforSave objDTO) {
 		VehicleModel obj = service.fromDTO(objDTO);
 		obj = service.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
@@ -55,7 +56,7 @@ public class VehicleModelResource {
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<Void> update(@RequestBody VehicleModelDTO objDTO, @PathVariable Long id) {
+	public ResponseEntity<Void> update(@RequestBody VehicleModelDTOforSave objDTO, @PathVariable Long id) {
 		VehicleModel obj = service.fromDTO(objDTO);
 		obj.setId(id);
 		obj = service.update(obj);

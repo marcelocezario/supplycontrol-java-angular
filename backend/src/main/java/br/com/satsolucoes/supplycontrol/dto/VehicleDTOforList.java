@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import br.com.satsolucoes.supplycontrol.entities.Vehicle;
 import br.com.satsolucoes.supplycontrol.entities.VehicleModel;
 
-public class VehicleDTO2 implements Serializable{
+public class VehicleDTOforList implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -15,12 +15,12 @@ public class VehicleDTO2 implements Serializable{
 	private String licensePlate;
 	private Integer modelYear;
 	private Integer tankCapacity;
-	private List<SupplyDTO2> supplies;
+	private List<SupplyDTOforList> supplies;
 	
-	public VehicleDTO2() {
+	public VehicleDTOforList() {
 	}
 
-	public VehicleDTO2(Long id, String licensePlate, Integer modelYear, Integer tankCapacity) {
+	public VehicleDTOforList(Long id, String licensePlate, Integer modelYear, Integer tankCapacity) {
 		super();
 		this.id = id;
 		this.licensePlate = licensePlate;
@@ -28,12 +28,12 @@ public class VehicleDTO2 implements Serializable{
 		this.tankCapacity = tankCapacity;
 	}
 	
-	public VehicleDTO2(Vehicle entity) {
+	public VehicleDTOforList(Vehicle entity) {
 		id = entity.getId();
 		licensePlate = entity.getLicensePlate();
 		modelYear = entity.getModelYear();
 		tankCapacity = entity.getTankCapacity();
-		supplies = entity.getSupplies().stream().map(x -> new SupplyDTO2(x)).collect(Collectors.toList());
+		supplies = entity.getSupplies().stream().map(x -> new SupplyDTOforList(x)).collect(Collectors.toList());
 	}
 
 	public Long getId() {
@@ -68,7 +68,7 @@ public class VehicleDTO2 implements Serializable{
 		this.tankCapacity = tankCapacity;
 	}
 
-	public List<SupplyDTO2> getSupplies() {
+	public List<SupplyDTOforList> getSupplies() {
 		return supplies;
 	}
 }

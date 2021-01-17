@@ -7,7 +7,7 @@ import br.com.satsolucoes.supplycontrol.entities.Supply;
 import br.com.satsolucoes.supplycontrol.entities.Vehicle;
 import br.com.satsolucoes.supplycontrol.entities.enums.Fuel;
 
-public class SupplyDTO2 implements Serializable{
+public class SupplyDTOforSave implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -19,12 +19,13 @@ public class SupplyDTO2 implements Serializable{
 	private boolean fullTank;
 	private Double averageConsumption;
 	private Fuel fuel;
+	private VehicleDTOforSave vehicle;
 	
-	public SupplyDTO2() {
+	public SupplyDTOforSave() {
 	}
 
-	public SupplyDTO2(Long id, Instant moment, Integer odometer, Double litersFilled, Double literValueOfFuel, boolean fullTank,
-			Double averageConsumption, Fuel fuel) {
+	public SupplyDTOforSave(Long id, Instant moment, Integer odometer, Double litersFilled, Double literValueOfFuel, boolean fullTank,
+			Double averageConsumption, Fuel fuel, Vehicle vehicle) {
 		this.id = id;
 		this.moment = moment;
 		this.odometer = odometer;
@@ -33,9 +34,10 @@ public class SupplyDTO2 implements Serializable{
 		this.fullTank = fullTank;
 		this.averageConsumption = averageConsumption;
 		this.fuel = fuel;
+		this.vehicle = new VehicleDTOforSave(vehicle);
 	}
 	
-	public SupplyDTO2(Supply entity) {
+	public SupplyDTOforSave(Supply entity) {
 		id = entity.getId();
 		moment = entity.getMoment();
 		odometer = entity.getOdometer();
@@ -44,6 +46,7 @@ public class SupplyDTO2 implements Serializable{
 		fullTank = entity.isFullTank();
 		averageConsumption = entity.getAverageConsumption();
 		fuel = entity.getFuel();
+		vehicle = new VehicleDTOforSave(entity.getVehicle());
 	}
 
 	public Long getId() {
@@ -108,5 +111,13 @@ public class SupplyDTO2 implements Serializable{
 
 	public void setFuel(Fuel fuel) {
 		this.fuel = fuel;
+	}
+
+	public VehicleDTOforSave getVehicle() {
+		return vehicle;
+	}
+
+	public void setVehicle(Vehicle vehicle) {
+		this.vehicle = new VehicleDTOforSave(vehicle);
 	}
 }

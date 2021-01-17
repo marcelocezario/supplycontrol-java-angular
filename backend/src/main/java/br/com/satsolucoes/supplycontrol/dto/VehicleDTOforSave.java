@@ -1,13 +1,11 @@
 package br.com.satsolucoes.supplycontrol.dto;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import br.com.satsolucoes.supplycontrol.entities.Vehicle;
 import br.com.satsolucoes.supplycontrol.entities.VehicleModel;
 
-public class VehicleDTO implements Serializable{
+public class VehicleDTOforSave implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -15,28 +13,26 @@ public class VehicleDTO implements Serializable{
 	private String licensePlate;
 	private Integer modelYear;
 	private Integer tankCapacity;
-	private VehicleModelDTO vehicleModel;
-	private List<SupplyDTOforList> supplies;
+	private VehicleModelDTOforSave vehicleModel;
 	
-	public VehicleDTO() {
+	public VehicleDTOforSave() {
 	}
 
-	public VehicleDTO(Long id, String licensePlate, Integer modelYear, Integer tankCapacity, VehicleModel vehicleModel) {
+	public VehicleDTOforSave(Long id, String licensePlate, Integer modelYear, Integer tankCapacity, VehicleModel vehicleModel) {
 		super();
 		this.id = id;
 		this.licensePlate = licensePlate;
 		this.modelYear = modelYear;
 		this.tankCapacity = tankCapacity;
-		this.vehicleModel = new VehicleModelDTO(vehicleModel);
+		this.vehicleModel = new VehicleModelDTOforSave(vehicleModel);
 	}
 	
-	public VehicleDTO(Vehicle entity) {
+	public VehicleDTOforSave(Vehicle entity) {
 		id = entity.getId();
 		licensePlate = entity.getLicensePlate();
 		modelYear = entity.getModelYear();
 		tankCapacity = entity.getTankCapacity();
-		vehicleModel = new VehicleModelDTO(entity.getVehicleModel());
-		supplies = entity.getSupplies().stream().map(x -> new SupplyDTOforList(x)).collect(Collectors.toList());
+		vehicleModel = new VehicleModelDTOforSave(entity.getVehicleModel());
 	}
 
 	public Long getId() {
@@ -71,15 +67,11 @@ public class VehicleDTO implements Serializable{
 		this.tankCapacity = tankCapacity;
 	}
 
-	public VehicleModelDTO getVehicleModel() {
+	public VehicleModelDTOforSave getVehicleModel() {
 		return vehicleModel;
 	}
 
 	public void setVehicleModel(VehicleModel vehicleModel) {
-		this.vehicleModel = new VehicleModelDTO(vehicleModel);
-	}
-
-	public List<SupplyDTOforList> getSupplies() {
-		return supplies;
+		this.vehicleModel = new VehicleModelDTOforSave(vehicleModel);
 	}
 }

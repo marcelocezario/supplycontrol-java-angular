@@ -1,33 +1,32 @@
 package br.com.satsolucoes.supplycontrol.dto;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import br.com.satsolucoes.supplycontrol.entities.Brand;
 import br.com.satsolucoes.supplycontrol.entities.VehicleModel;
 
-public class VehicleModelDTO2 implements Serializable {
+public class VehicleModelDTOforSave implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
 	private String name;
-	private List<VehicleDTO2> vehicles;
+	private BrandDTOforSave brand;
 
-	public VehicleModelDTO2() {
+	public VehicleModelDTOforSave() {
 	}
 
-	public VehicleModelDTO2(Long id, String name) {
+	public VehicleModelDTOforSave(Long id, String name, Brand brand) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.brand = new BrandDTOforSave(brand);
 	}
 
-	public VehicleModelDTO2(VehicleModel entity) {
+	public VehicleModelDTOforSave(VehicleModel entity) {
 		id = entity.getId();
 		name = entity.getName();
-		vehicles = entity.getVehicles().stream().map(x -> new VehicleDTO2(x)).collect(Collectors.toList());
+		brand = new BrandDTOforSave(entity.getBrand());
 	}
 
 	public Long getId() {
@@ -46,7 +45,11 @@ public class VehicleModelDTO2 implements Serializable {
 		this.name = name;
 	}
 
-	public List<VehicleDTO2> getVehicles() {
-		return vehicles;
+	public BrandDTOforSave getBrand() {
+		return brand;
+	}
+
+	public void setBrand(Brand brand) {
+		this.brand = new BrandDTOforSave(brand);
 	}
 }

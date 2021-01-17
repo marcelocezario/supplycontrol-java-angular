@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.satsolucoes.supplycontrol.dto.VehicleModelDTO;
+import br.com.satsolucoes.supplycontrol.dto.VehicleModelDTOforSave;
 import br.com.satsolucoes.supplycontrol.entities.VehicleModel;
 import br.com.satsolucoes.supplycontrol.repositories.VehicleModelRepository;
 import br.com.satsolucoes.supplycontrol.services.exceptions.ResourceNotFoundException;
@@ -53,6 +54,10 @@ public class VehicleModelService {
 	}
 	
 	public VehicleModel fromDTO(VehicleModelDTO objDTO) {
+		return new VehicleModel(objDTO.getId(), objDTO.getName(), brandService.fromDTO(objDTO.getBrand()));
+	}
+	
+	public VehicleModel fromDTO(VehicleModelDTOforSave objDTO) {
 		return new VehicleModel(objDTO.getId(), objDTO.getName(), brandService.fromDTO(objDTO.getBrand()));
 	}
 }
