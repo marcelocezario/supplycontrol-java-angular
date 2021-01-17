@@ -24,7 +24,7 @@ public class VehicleModel implements Serializable{
 	private String name;
 	
 	@ManyToOne
-	@JoinColumn(name = "brand_id")
+	@JoinColumn(name = "brand_id", nullable = true)
 	private Brand brand;
 	
 	@OneToMany(mappedBy = "vehicleModel")

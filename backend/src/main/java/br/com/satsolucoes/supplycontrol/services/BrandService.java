@@ -20,7 +20,7 @@ public class BrandService {
 
 	@Transactional(readOnly = true)
 	public List<Brand> findAll() {
-		return repository.findAll();
+		return repository.findBrandsWithVehicleModels();
 	}
 
 	@Transactional(readOnly = true)

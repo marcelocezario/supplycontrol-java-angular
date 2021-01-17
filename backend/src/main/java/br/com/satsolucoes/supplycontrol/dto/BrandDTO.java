@@ -1,17 +1,20 @@
 package br.com.satsolucoes.supplycontrol.dto;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import br.com.satsolucoes.supplycontrol.entities.Brand;
 
-public class BrandDTO implements Serializable{
+public class BrandDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private Long id;
 	private String name;
 	private String imageUrl;
-	
+	private List<VehicleModelListDTO> vehicleModels;
+
 	public BrandDTO() {
 	}
 
@@ -21,11 +24,13 @@ public class BrandDTO implements Serializable{
 		this.name = name;
 		this.imageUrl = imageUrl;
 	}
-	
+
 	public BrandDTO(Brand entity) {
 		id = entity.getId();
 		name = entity.getName();
 		imageUrl = entity.getImageUrl();
+		vehicleModels = entity.getVehicleModels().stream().map(x -> new VehicleModelListDTO(x))
+				.collect(Collectors.toList());
 	}
 
 	public Long getId() {
@@ -50,5 +55,9 @@ public class BrandDTO implements Serializable{
 
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
+	}
+
+	public List<VehicleModelListDTO> getVehicleModels() {
+		return vehicleModels;
 	}
 }
