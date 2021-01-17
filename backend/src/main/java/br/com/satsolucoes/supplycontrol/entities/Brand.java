@@ -21,6 +21,7 @@ public class Brand implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	private String imageUrl;
 	
 	@OneToMany(mappedBy = "brand")
 	private Set<VehicleModel> vehicleModels = new HashSet<>();
@@ -28,10 +29,11 @@ public class Brand implements Serializable{
 	public Brand() {
 	}
 
-	public Brand(Long id, String name) {
+	public Brand(Long id, String name, String imageUrl) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.imageUrl = imageUrl;
 	}
 
 	public Long getId() {
@@ -48,6 +50,14 @@ public class Brand implements Serializable{
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 	public Set<VehicleModel> getVehicleModels() {

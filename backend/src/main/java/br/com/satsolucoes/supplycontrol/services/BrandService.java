@@ -46,10 +46,10 @@ public class BrandService {
 
 	public void updateData(Brand newObj, Brand obj) {
 		newObj.setName(obj.getName());
+		newObj.setImageUrl(obj.getImageUrl());
 	}
 
 	public Brand fromDTO(BrandDTO objDTO) {
-		return new Brand(objDTO.getId(), objDTO.getName());
+		return new Brand(objDTO.getId(), objDTO.getName(), objDTO.getImageUrl());
 	}
-
 }
