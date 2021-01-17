@@ -3,7 +3,9 @@ package br.com.satsolucoes.supplycontrol.entities;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,24 +16,24 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_vehicle")
-public class Vehicle implements Serializable{
+public class Vehicle implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String licensePlate;
 	private Integer modelYear;
 	private Integer tankCapacity;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "modelVehicle_id")
+	@JoinColumn(name = "modelVehicle_id", nullable = true)
 	private VehicleModel vehicleModel;
-	
-	@OneToMany(mappedBy = "vehicle")
+
+	@OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<Supply> suplies;
-	
+
 	public Vehicle() {
 	}
 
@@ -67,7 +69,7 @@ public class Vehicle implements Serializable{
 	public void setModelYear(Integer modelYear) {
 		this.modelYear = modelYear;
 	}
-	
+
 	public Integer getTankCapacity() {
 		return tankCapacity;
 	}

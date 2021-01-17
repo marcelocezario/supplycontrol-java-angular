@@ -31,7 +31,7 @@ public class Supply implements Serializable {
 	private Fuel fuel;
 
 	@ManyToOne
-	@JoinColumn(name = "vehicle_id")
+	@JoinColumn(name = "vehicle_id", nullable = true)
 	private Vehicle vehicle;
 
 	public Supply() {
