@@ -1,11 +1,19 @@
 <mat-card>
     <mat-card-title>Novo Modelo de Veículo</mat-card-title>
     <form>
-        <mat-form-field>
-            <input matInput placeholder="Nome" [(ngModel)]="vehiclemodel.name" name="name">
-        </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Selecione uma marca</mat-label>
+        <mat-select [(value)]="vehiclemodel.brand">
+          <mat-option></mat-option>
+          <mat-option [value]="brand" *ngFor="let brand of brands">{{ brand.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <mat-form-field>
+        <input matInput placeholder="Nome" [(ngModel)]="vehiclemodel.name" name="name">
+      </mat-form-field>
     </form>
-    <button mat-raised-button (click)="createVehiclemodel()" color="primary">
+    <button mat-raised-button (click)="createVehiclemodel()">
         Salvar
     </button>
     <button mat-raised-button (click)="cancel()">

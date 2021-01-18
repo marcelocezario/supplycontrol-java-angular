@@ -1,3 +1,5 @@
+import { BrandService } from './../../brand/brand.service';
+import { Brand } from './../../brand/brand.model';
 import { Vehiclemodel } from './../vehiclemodel.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { VehiclemodelService } from './../vehiclemodel.service';
@@ -10,15 +12,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VehiclemodelUpdateComponent implements OnInit {
 
+  brands: Brand[]
+
   vehiclemodel: Vehiclemodel
 
-  constructor(private vehiclemodelService: VehiclemodelService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private vehiclemodelService: VehiclemodelService, private router: Router, private route: ActivatedRoute, private brandService: BrandService) { }
 
   ngOnInit(): void {
+    this.brandService.read().subscribe(brands => {
+      this.brands = brands
+    })
+    
     const id = this.route.snapshot.paramMap.get('id')
     this.vehiclemodelService.readById(id).subscribe(vehiclemodel => {
       this.vehiclemodel = vehiclemodel;
     })
+
   }
 
   updateVehiclemodel(): void {

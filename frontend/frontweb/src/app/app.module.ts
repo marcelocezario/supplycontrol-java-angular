@@ -52,6 +52,9 @@ import { FormsModule } from '@angular/forms';
 import { MenuComponent } from './components/template/menu/menu.component';
 import { BrandCardComponent } from './components/brand/brand-card/brand-card.component';
 
+import { MatSelectModule } from '@angular/material/select';
+
+
 
 
 registerLocaleData(localePt);
@@ -104,7 +107,8 @@ registerLocaleData(localePt);
     MatPaginatorModule,
     MatSortModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSelectModule
   ],
   providers: [{
     provide: LOCALE_ID,

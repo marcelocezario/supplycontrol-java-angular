@@ -16,7 +16,6 @@ export class BrandReadComponent implements OnInit {
   ngOnInit(): void {
     this.brandService.read().subscribe(brands => {
       this.brands = brands
-      console.log(brands)
     })
   }
 

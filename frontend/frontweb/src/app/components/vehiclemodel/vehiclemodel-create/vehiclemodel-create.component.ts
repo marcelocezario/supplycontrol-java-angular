@@ -1,3 +1,5 @@
+import { Brand } from './../../brand/brand.model';
+import { BrandService } from './../../brand/brand.service';
 import { VehiclemodelService } from './../vehiclemodel.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -10,14 +12,22 @@ import { Vehiclemodel } from '../vehiclemodel.model';
 })
 export class VehiclemodelCreateComponent implements OnInit {
 
+  brands: Brand[]
+
+  selectedValue: Brand;
+
   vehiclemodel: Vehiclemodel = {
-    name: ''
+    name: '',
+    brand: null
   }
 
   constructor(private vehiclemodelService: VehiclemodelService,
-    private router: Router) { }
+    private router: Router, private brandService: BrandService) { }
 
   ngOnInit(): void {
+    this.brandService.read().subscribe(brands => {
+      this.brands = brands
+    })
   }
 
   createVehiclemodel(): void {
