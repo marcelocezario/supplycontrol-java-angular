@@ -4,6 +4,7 @@ import { VehiclemodelService } from './../vehiclemodel.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Vehiclemodel } from '../vehiclemodel.model';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-vehiclemodel-create',
@@ -11,6 +12,8 @@ import { Vehiclemodel } from '../vehiclemodel.model';
   styleUrls: ['./vehiclemodel-create.component.css']
 })
 export class VehiclemodelCreateComponent implements OnInit {
+
+  brandControl = new FormControl ('', Validators.required);
 
   brands: Brand[]
 

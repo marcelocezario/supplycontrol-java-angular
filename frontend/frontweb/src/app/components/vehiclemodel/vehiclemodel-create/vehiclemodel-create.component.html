@@ -3,10 +3,13 @@
     <form>
       <mat-form-field appearance="fill">
         <mat-label>Selecione uma marca</mat-label>
-        <mat-select [(value)]="vehiclemodel.brand">
+        <mat-select [(value)]="vehiclemodel.brand" required>
           <mat-option></mat-option>
-          <mat-option [value]="brand" *ngFor="let brand of brands">{{ brand.name }}</mat-option>
+          <mat-option *ngFor="let brand of brands" [value]="brand">
+            {{ brand.name }}
+          </mat-option>
         </mat-select>
+        <mat-error *ngIf="brandControl.hasError('required')">Por favor escolha uma marca</mat-error>
       </mat-form-field>
       
       <mat-form-field>
