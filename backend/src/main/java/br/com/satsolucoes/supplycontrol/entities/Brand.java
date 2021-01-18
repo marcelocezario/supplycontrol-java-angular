@@ -11,6 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import br.com.satsolucoes.supplycontrol.services.BrandService;
+
 @Entity
 @Table(name = "tb_brand")
 public class Brand implements Serializable {
@@ -60,28 +64,14 @@ public class Brand implements Serializable {
 		this.imageUrl = imageUrl;
 	}
 
-	public Double getTotalTraveled() {
-	/**
-	 * AINDA TEM QUE SER IMPLEMENTADO
-	 */
-		return null;
-	}
-
-	public Double getTotalLitersUsed() {
-	/**
-	 * AINDA TEM QUE SER IMPLEMENTADO
-	 */
-		return null;
-	}
-
-	public Double getOverallAverage() {
-		Double totalTraveled = getTotalTraveled();
-		Double totalLiters = getTotalLitersUsed();
-		if(totalTraveled > 0 && totalLiters > 0) {
-			return totalTraveled / totalLiters;
-		}
-		return null;
-	}
+//	public Double getOverallAverage() {
+//		Integer totalTraveled = getTotalTraveled();
+//		Double totalLiters = getTotalLitersUsed();
+//		if (totalTraveled > 0 && totalLiters > 0) {
+//			return totalTraveled / totalLiters;
+//		}
+//		return 0.0;
+//	}
 
 	public Set<VehicleModel> getVehicleModels() {
 		return vehicleModels;

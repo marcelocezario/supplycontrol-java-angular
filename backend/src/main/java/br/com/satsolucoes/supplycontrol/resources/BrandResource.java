@@ -21,25 +21,25 @@ import br.com.satsolucoes.supplycontrol.entities.Brand;
 import br.com.satsolucoes.supplycontrol.services.BrandService;
 
 @RestController
-@RequestMapping(value="/brands")
+@RequestMapping(value = "/brands")
 public class BrandResource {
-	
+
 	@Autowired
 	private BrandService service;
-	
+
 	@GetMapping
 	public ResponseEntity<List<BrandDTO>> findAll() {
 		List<Brand> list = service.findAll();
-		List<BrandDTO> listDto = list.stream().map(x -> new BrandDTO(x)).collect(Collectors.toList());
+		List<BrandDTO> listDto = list.stream().map(x -> service.toDTO(x)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDto);
 	}
-	
+
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<BrandDTO> findById(@PathVariable Long id) {
 		Brand obj = service.findById(id);
-		return ResponseEntity.ok().body(new BrandDTO(obj));
+		return ResponseEntity.ok().body(service.toDTO(obj));
 	}
-	
+
 	@PostMapping
 	public ResponseEntity<Void> insert(@RequestBody BrandDTO objDTO) {
 		Brand obj = service.fromDTO(objDTO);
@@ -47,13 +47,13 @@ public class BrandResource {
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
-	
+
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<Void> delete(@PathVariable Long id) {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}
-	
+
 	@PutMapping(value = "/{id}")
 	public ResponseEntity<Void> update(@RequestBody BrandDTO objDTO, @PathVariable Long id) {
 		Brand obj = service.fromDTO(objDTO);

@@ -18,6 +18,9 @@ public class BrandService {
 	@Autowired
 	private BrandRepository repository;
 
+	@Autowired
+	private SupplyService supplyService;
+
 	@Transactional(readOnly = true)
 	public List<Brand> findAll() {
 		return repository.findBrandsWithVehicleModels();
@@ -48,10 +51,20 @@ public class BrandService {
 		newObj.setName(obj.getName());
 		newObj.setImageUrl(obj.getImageUrl());
 	}
-	
-	public Double sumTravelledDistanceByBrand(Brand brand) {
-		//return supplyService.sumTravelledDistanceByBrand(brand);
-		return 0.0;
+
+	public Integer getTotalTravelledDistance() {
+		Brand brand = findById(1L);
+		return supplyService.sumTravelledDistanceByBrand(brand);
+	}
+
+	public Double getTotalLiterUsed() {
+		Brand brand = findById(1L);
+		return supplyService.sumLitersUsedByBrand(brand);
+	}
+
+	public BrandDTO toDTO(Brand obj) {
+		return new BrandDTO(obj.getId(), obj.getName(), obj.getImageUrl(), this.getTotalTravelledDistance(),
+				this.getTotalLiterUsed());
 	}
 
 	public Brand fromDTO(BrandDTO objDTO) {

@@ -11,30 +11,27 @@ public class BrandDTO implements Serializable {
 	private Long id;
 	private String name;
 	private String imageUrl;
-	private Double totalTraveled;
+	private Integer totalTraveled;
 	private Double totalLitersUsed;
 	private Double overallAverage;
 
 	public BrandDTO() {
 	}
-
-	public BrandDTO(Long id, String name, String imageUrl, Double totalTraveled, Double totalLitersUsed, Double overallAverage) {
+	
+	public BrandDTO(Long id, String name, String imageUrl, Integer totalTraveled, Double totalLitersUsed) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.imageUrl = imageUrl;
 		this.totalTraveled = totalTraveled;
 		this.totalLitersUsed = totalLitersUsed;
-		this.overallAverage = overallAverage;
+		this.overallAverage = totalTraveled / totalLitersUsed;
 	}
-
+	
 	public BrandDTO(Brand entity) {
 		id = entity.getId();
 		name = entity.getName();
 		imageUrl = entity.getImageUrl();
-		totalTraveled = entity.getTotalTraveled();
-		totalLitersUsed = entity.getTotalLitersUsed();
-		overallAverage = entity.getOverallAverage();
 	}
 
 	public Long getId() {
@@ -61,11 +58,11 @@ public class BrandDTO implements Serializable {
 		this.imageUrl = imageUrl;
 	}
 
-	public Double getTotalTraveled() {
+	public Integer getTotalTraveled() {
 		return totalTraveled;
 	}
 
-	public void setTotalTraveled(Double totalTraveled) {
+	public void setTotalTraveled(Integer totalTraveled) {
 		this.totalTraveled = totalTraveled;
 	}
 

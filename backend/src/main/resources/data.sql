@@ -8,7 +8,7 @@ INSERT INTO public.tb_vehicle_model (name, brand_id) VALUES ('LS 1634', 2);
 INSERT INTO public.tb_vehicle_model (name, brand_id) VALUES ('25390', 4);
 INSERT INTO public.tb_vehicle_model (name, brand_id) VALUES ('FH12', 3);
 INSERT INTO public.tb_vehicle (license_plate, model_year, tank_capacity, model_vehicle_id) VALUES ('AAA1A111', 2020, 500, 1);
-INSERT INTO public.tb_vehicle (license_plate, model_year, tank_capacity, model_vehicle_id) VALUES ('BBB1A111', 2019, 300, 1);
+INSERT INTO public.tb_vehicle (license_plate, model_year, tank_capacity, model_vehicle_id) VALUES ('BBB1A111', 2019, 300, 2);
 INSERT INTO public.tb_vehicle (license_plate, model_year, tank_capacity, model_vehicle_id) VALUES ('CCC1A111', 2018, 200, 3);
 INSERT INTO public.tb_vehicle (license_plate, model_year, tank_capacity, model_vehicle_id) VALUES ('DDD1A111', 2000, 600, 2);
 INSERT INTO public.tb_vehicle (license_plate, model_year, tank_capacity, model_vehicle_id) VALUES ('EEE1A111', 1999, 500, 5);

@@ -72,4 +72,12 @@ public class SupplyResource {
 		List<SupplyDTO> listDto = list.stream().map(x -> new SupplyDTO(x)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDto);
 	}
+	
+//	@GetMapping(value = "/teste")
+//	public ResponseEntity<List<SupplyDTO>> teste() {
+//
+//		List<Supply> list = service.teste();
+//		List<SupplyDTO> listDto = list.stream().map(x -> new SupplyDTO(x)).collect(Collectors.toList());
+//		return ResponseEntity.ok().body(listDto);
+//	}
 }
