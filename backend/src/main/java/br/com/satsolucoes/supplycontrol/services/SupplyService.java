@@ -171,10 +171,20 @@ public class SupplyService {
 	}
 
 	public Double sumLitersUsedByBrand(Brand brand) {
-		return repository.sumLitersUsedByBrand(brand);
+		Double sum = repository.sumLitersUsedByBrand(brand);
+		if (sum != null) {
+			return sum;		
+		} else {
+			return 0.0;
+		}
 	}
 
 	public Integer sumTravelledDistanceByBrand(Brand brand) {
-		return repository.sumTravelledDistanceByBrand(brand);
+		Integer sum = repository.sumTravelledDistanceByBrand(brand);
+		if (sum != null) {
+			return sum;		
+		} else {
+			return 0;
+		}
 	}
 }

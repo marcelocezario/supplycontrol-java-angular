@@ -52,19 +52,17 @@ public class BrandService {
 		newObj.setImageUrl(obj.getImageUrl());
 	}
 
-	public Integer getTotalTravelledDistance() {
-		Brand brand = findById(1L);
-		return supplyService.sumTravelledDistanceByBrand(brand);
+	public Integer getTotalTravelledDistance(Long id) {
+		return supplyService.sumTravelledDistanceByBrand(findById(id));
 	}
 
-	public Double getTotalLiterUsed() {
-		Brand brand = findById(1L);
-		return supplyService.sumLitersUsedByBrand(brand);
+	public Double getTotalLiterUsed(Long id) {
+		return supplyService.sumLitersUsedByBrand(findById(id));
 	}
 
 	public BrandDTO toDTO(Brand obj) {
-		return new BrandDTO(obj.getId(), obj.getName(), obj.getImageUrl(), this.getTotalTravelledDistance(),
-				this.getTotalLiterUsed());
+		return new BrandDTO(obj.getId(), obj.getName(), obj.getImageUrl(), this.getTotalTravelledDistance(obj.getId()),
+				this.getTotalLiterUsed(obj.getId()));
 	}
 
 	public Brand fromDTO(BrandDTO objDTO) {

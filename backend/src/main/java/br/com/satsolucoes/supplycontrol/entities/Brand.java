@@ -11,10 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import br.com.satsolucoes.supplycontrol.services.BrandService;
-
 @Entity
 @Table(name = "tb_brand")
 public class Brand implements Serializable {
