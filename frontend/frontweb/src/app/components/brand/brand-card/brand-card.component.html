@@ -1,15 +1,23 @@
 <mat-card class="card">
     <mat-card-header>
-      <mat-card-title class="font-bold">Nome da marca</mat-card-title>
+      <mat-card-title class="title font-bold">{{ brand.name }}</mat-card-title>
     </mat-card-header>
-    <img mat-card-image src="https://s2.glbimg.com/gdLNqTcRTbPbQT5315lEFC00vRg=/0x264:3543x2424/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2017/I/D/PnxWlFRmSaOaVlA2IDOA/img-6208.jpg">
-    <mat-card-subtitle class="font-regular">Média geral: 2,58 KM/L</mat-card-subtitle>
-    <mat-card-subtitle class="font-regular">Nr. modelos: 2</mat-card-subtitle>
-    <mat-card-subtitle class="font-regular">Nr. veículos: 10</mat-card-subtitle>
-    <mat-card-subtitle class="font-regular">Total km percorrido: 1.569.699</mat-card-subtitle>
-    <mat-card-subtitle class="font-regular">Qtde. abastecida: 608.410 L</mat-card-subtitle>
+    <img mat-card-image src="{{ brand.imageUrl }}">
+    <mat-card-subtitle class="font-regular">Média geral: {{ brand.overallAverage }} KM/L</mat-card-subtitle>
+    <mat-card-subtitle class="font-regular">Total km percorrido: {{ brand.totalTraveled }}</mat-card-subtitle>
+    <mat-card-subtitle class="font-regular">Qtde. abastecida: {{ brand.totalLitersUsed }} L</mat-card-subtitle>
     <mat-card-actions>
-      <button class="font-bold" mat-button>MODELOS</button>
-      <button class="font-bold" mat-button>VEÍCULOS</button>
+      <div class="action">
+        <a routerLink="/brands/update/{{ brand.id }}" class="font-bold" mat-button>
+          <i class="material-icons">
+            edit
+          </i>
+        </a>
+        <a routerLink="/brands/delete/{{ brand.id }}" class="font-bold" mat-button>
+          <i class="material-icons">
+            delete
+          </i>
+        </a>
+      </div>
     </mat-card-actions>
 </mat-card>

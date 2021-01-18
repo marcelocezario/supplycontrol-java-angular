@@ -1,8 +1,18 @@
 .card {
     max-width: 250px;
+}
 
+.title{
+    text-transform: uppercase;   
 }
 
 .info{
     list-style-type: none;    
+}
+
+.action{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
 }

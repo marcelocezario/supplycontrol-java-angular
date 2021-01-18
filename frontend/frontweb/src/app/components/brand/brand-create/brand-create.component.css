@@ -12,3 +12,8 @@ button {
     font-family: Goldplay-Regular;
 }
 
+.button-confirm{
+    background-color: rgb(6, 72, 116);
+    color:white;
+}
+

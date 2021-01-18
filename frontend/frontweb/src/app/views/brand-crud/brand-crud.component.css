@@ -2,3 +2,7 @@ button {
     margin-bottom: 30px;
     font-family: Goldplay-Bold;
 }
+
+.container {
+    padding-left: 10%;
+}
