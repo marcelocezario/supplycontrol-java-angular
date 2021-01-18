@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,7 +24,7 @@ public class Brand implements Serializable {
 	private String name;
 	private String imageUrl;
 
-	@OneToMany(mappedBy = "brand")
+	@OneToMany(mappedBy = "brand", cascade = CascadeType.DETACH)
 	private Set<VehicleModel> vehicleModels = new HashSet<>();
 
 	public Brand() {
@@ -59,15 +60,6 @@ public class Brand implements Serializable {
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
-
-//	public Double getOverallAverage() {
-//		Integer totalTraveled = getTotalTraveled();
-//		Double totalLiters = getTotalLitersUsed();
-//		if (totalTraveled > 0 && totalLiters > 0) {
-//			return totalTraveled / totalLiters;
-//		}
-//		return 0.0;
-//	}
 
 	public Set<VehicleModel> getVehicleModels() {
 		return vehicleModels;

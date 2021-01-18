@@ -21,18 +21,21 @@ public class BrandService {
 	@Autowired
 	private SupplyService supplyService;
 
-	@Transactional(readOnly = true)
+	@Transactional
 	public List<Brand> findAll() {
-		return repository.findBrandsWithVehicleModels();
+		return repository.findAll();
 	}
 
-	@Transactional(readOnly = true)
+	@Transactional
 	public Brand findById(Long id) {
 		Optional<Brand> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 
 	public Brand insert(Brand obj) {
+		if (obj.getImageUrl().isEmpty() || obj.getImageUrl() == null) {
+			obj.setImageUrl("assets/img/image_not_found.svg");
+		}
 		return repository.save(obj);
 	}
 
