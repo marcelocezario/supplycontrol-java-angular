@@ -3,9 +3,7 @@ package br.com.satsolucoes.supplycontrol.entities;
 import java.io.Serializable;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,10 +24,10 @@ public class VehicleModel implements Serializable {
 	private String name;
 
 	@ManyToOne
-	@JoinColumn(name = "brand_id", nullable = true)
+	@JoinColumn(name = "brand_id")
 	private Brand brand;
 
-	@OneToMany(mappedBy = "vehicleModel", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "vehicleModel")
 	private Set<Vehicle> vehicles;
 
 	public VehicleModel() {

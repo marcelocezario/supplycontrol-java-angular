@@ -28,10 +28,10 @@ public class Vehicle implements Serializable {
 	private Integer tankCapacity;
 
 	@ManyToOne
-	@JoinColumn(name = "modelVehicle_id", nullable = true)
+	@JoinColumn(name = "modelVehicle_id")
 	private VehicleModel vehicleModel;
 
-	@OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "vehicle")
 	private Set<Supply> supplies;
 
 	public Vehicle() {

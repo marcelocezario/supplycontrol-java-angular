@@ -13,28 +13,21 @@ public class BrandDTO implements Serializable {
 	private Long id;
 	private String name;
 	private String imageUrl;
-	private Double totalTraveled;
-	
-	private List<VehicleModelDTOforList> vehicleModels;
 
 	public BrandDTO() {
 	}
 
-	public BrandDTO(Long id, String name, String imageUrl, Double totalTraveled) {
+	public BrandDTO(Long id, String name, String imageUrl) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.imageUrl = imageUrl;
-		this.totalTraveled = totalTraveled;
 	}
 
 	public BrandDTO(Brand entity) {
 		id = entity.getId();
 		name = entity.getName();
 		imageUrl = entity.getImageUrl();
-		totalTraveled = entity.getTotalTraveled();
-		vehicleModels = entity.getVehicleModels().stream().map(x -> new VehicleModelDTOforList(x))
-				.collect(Collectors.toList());
 	}
 
 	public Long getId() {
@@ -59,17 +52,5 @@ public class BrandDTO implements Serializable {
 
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
-	}
-	
-	public Double getTotalTraveled() {
-		return totalTraveled;
-	}
-
-	public void setTotalTraveled(Double totalTraveled) {
-		this.totalTraveled = totalTraveled;
-	}
-
-	public List<VehicleModelDTOforList> getVehicleModels() {
-		return vehicleModels;
 	}
 }

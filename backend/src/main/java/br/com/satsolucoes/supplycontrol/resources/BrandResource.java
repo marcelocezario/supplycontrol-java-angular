@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.com.satsolucoes.supplycontrol.dto.BrandDTO;
-import br.com.satsolucoes.supplycontrol.dto.BrandDTOforSave;
 import br.com.satsolucoes.supplycontrol.entities.Brand;
 import br.com.satsolucoes.supplycontrol.services.BrandService;
 
@@ -42,7 +41,7 @@ public class BrandResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Void> insert(@RequestBody BrandDTOforSave objDTO) {
+	public ResponseEntity<Void> insert(@RequestBody BrandDTO objDTO) {
 		Brand obj = service.fromDTO(objDTO);
 		obj = service.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
@@ -56,7 +55,7 @@ public class BrandResource {
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<Void> update(@RequestBody BrandDTOforSave objDTO, @PathVariable Long id) {
+	public ResponseEntity<Void> update(@RequestBody BrandDTO objDTO, @PathVariable Long id) {
 		Brand obj = service.fromDTO(objDTO);
 		obj.setId(id);
 		obj = service.update(obj);

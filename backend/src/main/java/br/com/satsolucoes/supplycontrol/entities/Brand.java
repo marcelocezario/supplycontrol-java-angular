@@ -4,9 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,19 +13,19 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_brand")
-public class Brand implements Serializable{
+public class Brand implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 	private String imageUrl;
-	
-	@OneToMany(mappedBy = "brand", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+
+	@OneToMany(mappedBy = "brand")
 	private Set<VehicleModel> vehicleModels = new HashSet<>();
-	
+
 	public Brand() {
 	}
 
@@ -53,7 +51,7 @@ public class Brand implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public String getImageUrl() {
 		return imageUrl;
 	}
@@ -61,13 +59,13 @@ public class Brand implements Serializable{
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
-	
+
 	public Double getTotalTraveled() {
 		Double totalTraveled = 0.0;
 		for (VehicleModel mb : vehicleModels) {
 			for (Vehicle v : mb.getVehicles()) {
 				for (Supply s : v.getSupplies()) {
-					if(s.getAverageConsumption() > 0) {
+					if (s.getAverageConsumption() > 0) {
 						totalTraveled += s.getAverageConsumption() * s.getLitersFilled();
 					}
 				}
@@ -75,7 +73,7 @@ public class Brand implements Serializable{
 		}
 		return totalTraveled;
 	}
-	
+
 	public Set<VehicleModel> getVehicleModels() {
 		return vehicleModels;
 	}

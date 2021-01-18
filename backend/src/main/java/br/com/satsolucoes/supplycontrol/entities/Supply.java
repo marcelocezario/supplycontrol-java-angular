@@ -25,28 +25,31 @@ public class Supply implements Serializable {
 	private Instant moment;
 	private Integer odometer;
 	private Double litersFilled;
-	private Double literValueOfFuel;
+	private Double priceTotal;
 	private boolean fullTank;
-	private Double averageConsumption;
 	private Fuel fuel;
+	private Integer totalJourneyFromFullTank;
+	private Double totalLitersWithTheJourney;
 
 	@ManyToOne
-	@JoinColumn(name = "vehicle_id", nullable = true)
+	@JoinColumn(name = "vehicle_id")
 	private Vehicle vehicle;
 
 	public Supply() {
 	}
 
-	public Supply(Long id, Instant moment, Integer odometer, Double litersFilled, Double literValueOfFuel,
-			boolean fullTank, Fuel fuel, Vehicle vehicle) {
+	public Supply(Long id, Instant moment, Integer odometer, Double litersFilled, Double priceTotal, boolean fullTank,
+			Fuel fuel, Integer totalJourneyFromFullTank, Double totalLitersWithTheJourney, Vehicle vehicle) {
 		super();
 		this.id = id;
 		this.moment = moment;
 		this.odometer = odometer;
 		this.litersFilled = litersFilled;
-		this.literValueOfFuel = literValueOfFuel;
+		this.priceTotal = priceTotal;
 		this.fullTank = fullTank;
 		this.fuel = fuel;
+		this.totalJourneyFromFullTank = totalJourneyFromFullTank;
+		this.totalLitersWithTheJourney = totalLitersWithTheJourney;
 		this.vehicle = vehicle;
 	}
 
@@ -77,17 +80,17 @@ public class Supply implements Serializable {
 	public Double getLitersFilled() {
 		return litersFilled;
 	}
-
+	
 	public void setLitersFilled(Double litersFilled) {
 		this.litersFilled = litersFilled;
 	}
-
-	public Double getLiterValueOfFuel() {
-		return literValueOfFuel;
+	
+	public Double getPriceTotal() {
+		return priceTotal;
 	}
 
-	public void setLiterValueOfFuel(Double literValueOfFuel) {
-		this.literValueOfFuel = literValueOfFuel;
+	public void setPriceTotal(Double priceTotal) {
+		this.priceTotal = priceTotal;
 	}
 
 	public boolean isFullTank() {
@@ -98,20 +101,35 @@ public class Supply implements Serializable {
 		this.fullTank = fullTank;
 	}
 
-	public Double getAverageConsumption() {
-		return averageConsumption;
-	}
-
-	public void setAverageConsumption(Double averageConsumption) {
-		this.averageConsumption = averageConsumption;
-	}
-
 	public Fuel getFuel() {
 		return fuel;
 	}
 
 	public void setFuel(Fuel fuel) {
 		this.fuel = fuel;
+	}
+
+	public Integer getTotalJourneyFromFullTank() {
+		return totalJourneyFromFullTank;
+	}
+
+	public void setTotalJourneyFromFullTank(Integer totalJourneyFromFullTank) {
+		this.totalJourneyFromFullTank = totalJourneyFromFullTank;
+	}
+
+	public Double getTotalLitersWithTheJourney() {
+		return totalLitersWithTheJourney;
+	}
+
+	public void setTotalLitersWithTheJourney(Double totalLitersWithTheJourney) {
+		this.totalLitersWithTheJourney = totalLitersWithTheJourney;
+	}
+
+	public Double getAverageConsumption() {
+		if (totalJourneyFromFullTank == 0 || totalLitersWithTheJourney == 0) {
+			return 0.0;
+		}
+		return totalJourneyFromFullTank / totalLitersWithTheJourney;
 	}
 
 	public Vehicle getVehicle() {

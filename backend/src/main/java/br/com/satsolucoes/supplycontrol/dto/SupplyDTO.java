@@ -15,25 +15,31 @@ public class SupplyDTO implements Serializable{
 	private Instant moment;
 	private Integer odometer;
 	private Double litersFilled;
-	private Double literValueOfFuel;
+	private Double priceTotal;
 	private boolean fullTank;
-	private Double averageConsumption;
 	private Fuel fuel;
+	private Integer totalJourneyFromFullTank;
+	private Double totalLitersWithTheJourney;
+	private Double averageConsumption;
 	private VehicleDTO vehicle;
 	
 	public SupplyDTO() {
 	}
-
-	public SupplyDTO(Long id, Instant moment, Integer odometer, Double litersFilled, Double literValueOfFuel, boolean fullTank,
-			Double averageConsumption, Fuel fuel, Vehicle vehicle) {
+	
+	public SupplyDTO(Long id, Instant moment, Integer odometer, Double litersFilled, Double priceTotal,
+			boolean fullTank, Fuel fuel, Integer totalJourneyFromFullTank, Double totalLitersWithTheJourney,
+			Vehicle vehicle, Double averageConsumption) {
+		super();
 		this.id = id;
 		this.moment = moment;
 		this.odometer = odometer;
 		this.litersFilled = litersFilled;
-		this.literValueOfFuel = literValueOfFuel;
+		this.priceTotal = priceTotal;
 		this.fullTank = fullTank;
-		this.averageConsumption = averageConsumption;
 		this.fuel = fuel;
+		this.totalJourneyFromFullTank = totalJourneyFromFullTank;
+		this.totalLitersWithTheJourney = totalLitersWithTheJourney;
+		this.averageConsumption = averageConsumption;
 		this.vehicle = new VehicleDTO(vehicle);
 	}
 	
@@ -42,10 +48,12 @@ public class SupplyDTO implements Serializable{
 		moment = entity.getMoment();
 		odometer = entity.getOdometer();
 		litersFilled = entity.getLitersFilled();
-		literValueOfFuel = entity.getLiterValueOfFuel();
+		priceTotal = entity.getPriceTotal();
 		fullTank = entity.isFullTank();
-		averageConsumption = entity.getAverageConsumption();
 		fuel = entity.getFuel();
+		totalJourneyFromFullTank = entity.getTotalJourneyFromFullTank();
+		totalLitersWithTheJourney = entity.getTotalLitersWithTheJourney();
+		averageConsumption = entity.getAverageConsumption();
 		vehicle = new VehicleDTO(entity.getVehicle());
 	}
 
@@ -72,7 +80,7 @@ public class SupplyDTO implements Serializable{
 	public void setOdometer(Integer odometer) {
 		this.odometer = odometer;
 	}
-	
+
 	public Double getLitersFilled() {
 		return litersFilled;
 	}
@@ -81,12 +89,12 @@ public class SupplyDTO implements Serializable{
 		this.litersFilled = litersFilled;
 	}
 
-	public Double getLiterValueOfFuel() {
-		return literValueOfFuel;
+	public Double getPriceTotal() {
+		return priceTotal;
 	}
 
-	public void setLiterValueOfFuel(Double literValueOfFuel) {
-		this.literValueOfFuel = literValueOfFuel;
+	public void setPriceTotal(Double priceTotal) {
+		this.priceTotal = priceTotal;
 	}
 
 	public boolean isFullTank() {
@@ -97,14 +105,6 @@ public class SupplyDTO implements Serializable{
 		this.fullTank = fullTank;
 	}
 
-	public Double getAverageConsumption() {
-		return averageConsumption;
-	}
-
-	public void setAverageConsumption(Double averageConsumption) {
-		this.averageConsumption = averageConsumption;
-	}
-
 	public Fuel getFuel() {
 		return fuel;
 	}
@@ -113,11 +113,35 @@ public class SupplyDTO implements Serializable{
 		this.fuel = fuel;
 	}
 
+	public Integer getTotalJourneyFromFullTank() {
+		return totalJourneyFromFullTank;
+	}
+
+	public void setTotalJourneyFromFullTank(Integer totalJourneyFromFullTank) {
+		this.totalJourneyFromFullTank = totalJourneyFromFullTank;
+	}
+
+	public Double getTotalLitersWithTheJourney() {
+		return totalLitersWithTheJourney;
+	}
+
+	public void setTotalLitersWithTheJourney(Double totalLitersWithTheJourney) {
+		this.totalLitersWithTheJourney = totalLitersWithTheJourney;
+	}
+
+	public Double getAverageConsumption() {
+		return averageConsumption;
+	}
+
+	public void setAverageConsumption(Double averageConsumption) {
+		this.averageConsumption = averageConsumption;
+	}
+
 	public VehicleDTO getVehicle() {
 		return vehicle;
 	}
 
-	public void setVehicle(Vehicle vehicle) {
-		this.vehicle = new VehicleDTO(vehicle);
+	public void setVehicle(VehicleDTO vehicle) {
+		this.vehicle = vehicle;
 	}
 }

@@ -16,7 +16,6 @@ public class VehicleDTO implements Serializable{
 	private Integer modelYear;
 	private Integer tankCapacity;
 	private VehicleModelDTO vehicleModel;
-	private List<SupplyDTOforList> supplies;
 	
 	public VehicleDTO() {
 	}
@@ -36,7 +35,6 @@ public class VehicleDTO implements Serializable{
 		modelYear = entity.getModelYear();
 		tankCapacity = entity.getTankCapacity();
 		vehicleModel = new VehicleModelDTO(entity.getVehicleModel());
-		supplies = entity.getSupplies().stream().map(x -> new SupplyDTOforList(x)).collect(Collectors.toList());
 	}
 
 	public Long getId() {
@@ -75,11 +73,7 @@ public class VehicleDTO implements Serializable{
 		return vehicleModel;
 	}
 
-	public void setVehicleModel(VehicleModel vehicleModel) {
-		this.vehicleModel = new VehicleModelDTO(vehicleModel);
-	}
-
-	public List<SupplyDTOforList> getSupplies() {
-		return supplies;
+	public void setVehicleModel(VehicleModelDTO vehicleModel) {
+		this.vehicleModel = vehicleModel;
 	}
 }
