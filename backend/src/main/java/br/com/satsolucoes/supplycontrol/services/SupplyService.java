@@ -110,6 +110,10 @@ public class SupplyService {
 		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 
+	public List<Supply> findByMomentBetween(Instant initialDate, Instant finalDate) {
+		return repository.findByMomentBetween(initialDate, finalDate);
+	}
+
 	@Transactional(readOnly = true)
 	public List<Supply> findByVehicleOrderByOdometerDesc(Vehicle vehicle) {
 		return repository.findByVehicleOrderByOdometerDesc(vehicle);
@@ -140,10 +144,6 @@ public class SupplyService {
 		return obj;
 	}
 
-	public List<Supply> findByMomentBetween(Instant initialDate, Instant finalDate) {
-		return repository.findByMomentBetween(initialDate, finalDate);
-	}
-
 	public void checkSubsequentSuppliesFullTank(Supply obj) {
 		Supply subSupply = findNextSupplyWithFullTank(obj);
 		if (subSupply != null) {
@@ -162,7 +162,7 @@ public class SupplyService {
 		}
 		return liters;
 	}
-
+	
 	public Supply fromDTO(SupplyDTO objDTO) {
 		return new Supply(objDTO.getId(), objDTO.getMoment(), objDTO.getOdometer(), objDTO.getLitersFilled(),
 				objDTO.getPriceTotal(), objDTO.isFullTank(), objDTO.getFuel(), objDTO.getTotalJourneyFromFullTank(),

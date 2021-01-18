@@ -1,26 +1,25 @@
 package br.com.satsolucoes.supplycontrol.dto;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import br.com.satsolucoes.supplycontrol.entities.Vehicle;
 import br.com.satsolucoes.supplycontrol.entities.VehicleModel;
 
-public class VehicleDTO implements Serializable{
+public class VehicleDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private Long id;
 	private String licensePlate;
 	private Integer modelYear;
 	private Integer tankCapacity;
 	private VehicleModelDTO vehicleModel;
-	
+
 	public VehicleDTO() {
 	}
 
-	public VehicleDTO(Long id, String licensePlate, Integer modelYear, Integer tankCapacity, VehicleModel vehicleModel) {
+	public VehicleDTO(Long id, String licensePlate, Integer modelYear, Integer tankCapacity,
+			VehicleModel vehicleModel) {
 		super();
 		this.id = id;
 		this.licensePlate = licensePlate;
@@ -28,7 +27,7 @@ public class VehicleDTO implements Serializable{
 		this.tankCapacity = tankCapacity;
 		this.vehicleModel = new VehicleModelDTO(vehicleModel);
 	}
-	
+
 	public VehicleDTO(Vehicle entity) {
 		id = entity.getId();
 		licensePlate = entity.getLicensePlate();
@@ -60,7 +59,7 @@ public class VehicleDTO implements Serializable{
 	public void setModelYear(Integer modelYear) {
 		this.modelYear = modelYear;
 	}
-	
+
 	public Integer getTankCapacity() {
 		return tankCapacity;
 	}

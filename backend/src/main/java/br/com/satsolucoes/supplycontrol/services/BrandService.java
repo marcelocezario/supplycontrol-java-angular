@@ -48,6 +48,11 @@ public class BrandService {
 		newObj.setName(obj.getName());
 		newObj.setImageUrl(obj.getImageUrl());
 	}
+	
+	public Double sumTravelledDistanceByBrand(Brand brand) {
+		//return supplyService.sumTravelledDistanceByBrand(brand);
+		return 0.0;
+	}
 
 	public Brand fromDTO(BrandDTO objDTO) {
 		return new Brand(objDTO.getId(), objDTO.getName(), objDTO.getImageUrl());

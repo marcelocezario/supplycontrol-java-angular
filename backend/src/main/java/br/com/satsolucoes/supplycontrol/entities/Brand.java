@@ -60,6 +60,29 @@ public class Brand implements Serializable {
 		this.imageUrl = imageUrl;
 	}
 
+	public Double getTotalTraveled() {
+	/**
+	 * AINDA TEM QUE SER IMPLEMENTADO
+	 */
+		return null;
+	}
+
+	public Double getTotalLitersUsed() {
+	/**
+	 * AINDA TEM QUE SER IMPLEMENTADO
+	 */
+		return null;
+	}
+
+	public Double getOverallAverage() {
+		Double totalTraveled = getTotalTraveled();
+		Double totalLiters = getTotalLitersUsed();
+		if(totalTraveled > 0 && totalLiters > 0) {
+			return totalTraveled / totalLiters;
+		}
+		return null;
+	}
+
 	public Set<VehicleModel> getVehicleModels() {
 		return vehicleModels;
 	}
