@@ -13,7 +13,7 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class VehiclemodelUpdateComponent implements OnInit {
 
-  brandControl = new FormControl ('', Validators.required);
+  formControl = new FormControl ('', Validators.required);
 
   brands: Brand[]
 

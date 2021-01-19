@@ -10,7 +10,7 @@
                   {{ brand.name }}
               </mat-option>
             </mat-select>
-            <mat-error *ngIf="brandControl.hasError('required')">Por favor escolha uma marca</mat-error>
+            <mat-error *ngIf="formControl.hasError('required')">Por favor escolha uma marca</mat-error>
         </mat-form-field>
 
         <mat-form-field>
