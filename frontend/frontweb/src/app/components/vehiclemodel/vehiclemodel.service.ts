@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EMPTY, Observable } from 'rxjs';
-import { Vehiclemodel } from './vehiclemodel.model';
+import { VehicleModel } from './vehicleModel.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,46 +23,46 @@ export class VehiclemodelService {
     })
   }
 
-  create(vehiclemodel: Vehiclemodel): Observable<Vehiclemodel> {
-    return this.http.post<Vehiclemodel>(this.baseUrl, vehiclemodel).pipe(
+  create(vehiclemodel: VehicleModel): Observable<VehicleModel> {
+    return this.http.post<VehicleModel>(this.baseUrl, vehiclemodel).pipe(
       map(obj => obj),
       catchError(e => this.errorHandler(e))
     );
   }
 
-  read(): Observable<Vehiclemodel[]> {
-    return this.http.get<Vehiclemodel[]>(this.baseUrl).pipe(
+  read(): Observable<VehicleModel[]> {
+    return this.http.get<VehicleModel[]>(this.baseUrl).pipe(
       map(obj => obj),
       catchError(e => this.errorHandler(e))
     );
   }
 
-  readByBrand(idBrand: number): Observable<Vehiclemodel[]> {
-    return this.http.get<Vehiclemodel[]>(this.baseUrl + 'filter?idBrand=' + idBrand).pipe(
+  readByBrand(idBrand: number): Observable<VehicleModel[]> {
+    return this.http.get<VehicleModel[]>(this.baseUrl + 'filter?idBrand=' + idBrand).pipe(
       map(obj => obj),
       catchError(e => this.errorHandler(e))
     );
   }
 
-  readById(id: string): Observable<Vehiclemodel> {
+  readById(id: string): Observable<VehicleModel> {
     const url = `${this.baseUrl}/${id}`
-    return this.http.get<Vehiclemodel>(url).pipe(
+    return this.http.get<VehicleModel>(url).pipe(
       map(obj => obj),
       catchError(e => this.errorHandler(e))
     );
   }
 
-  update(vehiclemodel: Vehiclemodel): Observable<Vehiclemodel> {
+  update(vehiclemodel: VehicleModel): Observable<VehicleModel> {
     const url = `${this.baseUrl}/${vehiclemodel.id}`
-    return this.http.put<Vehiclemodel>(url, vehiclemodel).pipe(
+    return this.http.put<VehicleModel>(url, vehiclemodel).pipe(
       map(obj => obj),
       catchError(e => this.errorHandler(e))
     );
   }
 
-  delete(id: number): Observable<Vehiclemodel> {
+  delete(id: number): Observable<VehicleModel> {
     const url = `${this.baseUrl}/${id}`
-    return this.http.delete<Vehiclemodel>(url).pipe(
+    return this.http.delete<VehicleModel>(url).pipe(
       map(obj => obj),
       catchError(e => this.errorHandler(e))
     );
