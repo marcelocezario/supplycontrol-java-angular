@@ -1,9 +1,9 @@
+import { VehicleModel } from './vehiclemodel.model';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EMPTY, Observable } from 'rxjs';
-import { VehicleModel } from './vehicleModel.model';
 
 @Injectable({
   providedIn: 'root'
