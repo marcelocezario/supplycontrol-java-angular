@@ -17,8 +17,6 @@ export class VehiclemodelCreateComponent implements OnInit {
 
   brands: Brand[]
 
-  selectedValue: Brand;
-
   vehiclemodel: Vehiclemodel = {
     name: '',
     brand: null
