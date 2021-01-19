@@ -37,6 +37,13 @@ export class VehiclemodelService {
     );
   }
 
+  readByBrand(idBrand: number): Observable<Vehiclemodel[]> {
+    return this.http.get<Vehiclemodel[]>(this.baseUrl + 'filter?idBrand=' + idBrand).pipe(
+      map(obj => obj),
+      catchError(e => this.errorHandler(e))
+    );
+  }
+
   readById(id: string): Observable<Vehiclemodel> {
     const url = `${this.baseUrl}/${id}`
     return this.http.get<Vehiclemodel>(url).pipe(
