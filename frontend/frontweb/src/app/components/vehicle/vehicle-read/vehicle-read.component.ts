@@ -10,7 +10,7 @@ import { Vehicle } from '../vehicle.model';
 export class VehicleReadComponent implements OnInit {
 
   vehicles: Vehicle[]
-  displayedColumns = ['id', 'licensePlate', 'modelYear', 'tankCapacity', 'action']
+  displayedColumns = ['id', 'brand', 'vehicleModel', 'licensePlate', 'modelYear', 'tankCapacity', 'action']
 
   constructor(private vehicleService: VehicleService) { }
 

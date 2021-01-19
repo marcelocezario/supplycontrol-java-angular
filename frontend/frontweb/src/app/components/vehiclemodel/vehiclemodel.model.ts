@@ -1,5 +1,5 @@
 import { Brand } from './../brand/brand.model';
-export interface Vehiclemodel {
+export interface VehicleModel {
     id?: number
     name: string
     brand: Brand

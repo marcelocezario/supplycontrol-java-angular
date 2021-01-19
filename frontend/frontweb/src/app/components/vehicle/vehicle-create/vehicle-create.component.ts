@@ -1,7 +1,12 @@
+import { VehicleModel } from './../../vehiclemodel/vehiclemodel.model';
+import { VehiclemodelService } from './../../vehiclemodel/vehiclemodel.service';
+import { Brand } from './../../brand/brand.model';
+import { BrandService } from './../../brand/brand.service';
 import { VehicleService } from './../vehicle.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Vehicle } from '../vehicle.model';
+import { FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -11,16 +16,34 @@ import { Vehicle } from '../vehicle.model';
 })
 export class VehicleCreateComponent implements OnInit {
 
+  formControl = new FormControl ('', Validators.required);
+
+  brands: Brand[]
+
+  brand: Brand
+
+  vehiclemodels: VehicleModel[]
+
   vehicle: Vehicle = {
     licensePlate: '',
     modelYear: null,
-    tankCapacity: null
+    tankCapacity: null,
+    vehicleModel: null
   }
 
-  constructor(private vehicleService: VehicleService,
-    private router: Router) { }
+  constructor(private vehicleService: VehicleService, private router: Router, private route: ActivatedRoute,
+    private brandService: BrandService, private vehiclemodelService: VehiclemodelService) { }
 
   ngOnInit(): void {
+    this.brandService.read().subscribe(brands => {
+      this.brands = brands
+    })
+  }
+
+  selectedBrand(idBrand: number): void {
+    this.vehiclemodelService.readByBrand(idBrand).subscribe(vehiclemodels => {
+      this.vehiclemodels = vehiclemodels
+    })
   }
 
   createVehicle(): void {
@@ -33,5 +56,4 @@ export class VehicleCreateComponent implements OnInit {
   cancel(): void {
     this.router.navigate(['/vehicles'])
   }
-
 }

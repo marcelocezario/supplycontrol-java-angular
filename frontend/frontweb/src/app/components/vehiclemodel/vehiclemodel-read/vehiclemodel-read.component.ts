@@ -1,6 +1,6 @@
 import { VehiclemodelService } from './../vehiclemodel.service';
 import { Component, OnInit } from '@angular/core';
-import { Vehiclemodel } from '../vehiclemodel.model';
+import { VehicleModel } from '../vehiclemodel.model';
 
 @Component({
   selector: 'app-vehiclemodel-read',
@@ -9,7 +9,7 @@ import { Vehiclemodel } from '../vehiclemodel.model';
 })
 export class VehiclemodelReadComponent implements OnInit {
 
-  vehiclemodels: Vehiclemodel[]
+  vehiclemodels: VehicleModel[]
   displayedColumns = ['id', 'marca', 'name', 'action']
 
   constructor(private vehiclemodelService: VehiclemodelService) { }

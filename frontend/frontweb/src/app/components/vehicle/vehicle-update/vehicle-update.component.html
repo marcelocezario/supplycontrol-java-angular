@@ -1,14 +1,40 @@
 <mat-card>
     <mat-card-title>Editar Veículo</mat-card-title>
     <form>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Selecione uma marca</mat-label>
+            <mat-select [(value)]="vehicle.vehicleModel.brand.id" name="brand" required>
+              <mat-option></mat-option>
+              <mat-option (click)="selectedBrand(brand.id)" [value]="brand.id" *ngFor="let brand of brands">
+                  {{ brand.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="formControl.hasError('required')">Por favor escolha uma marca</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Selecione um modelo</mat-label>
+            <mat-select [(value)]="vehicle.vehicleModel.id" name="vehicleModel" required>
+              <mat-option></mat-option>
+              <mat-option [value]="vehicleModel.id" *ngFor="let vehicleModel of vehiclemodels" name="vehicleModel">
+                  {{ vehicleModel.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="formControl.hasError('required')">Por favor escolha um modelo</mat-error>
+        </mat-form-field>
+
+
+
+
         <mat-form-field>
-            <input matInput placeholder="Placa" [(ngModel)]="vehicle.licensePlate" name="licensePlate">
+            <input matInput placeholder="Placa" [(ngModel)]="vehicle.licensePlate" name="licensePlate" required>
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Ano modelo" [(ngModel)]="vehicle.modelYear" name="modelYear">
+            <input matInput placeholder="Ano modelo" [(ngModel)]="vehicle.modelYear" name="modelYear" required>
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Capacidade do tanque" [(ngModel)]="vehicle.tankCapacity" name="tankCapacity">
+            <input matInput placeholder="Capacidade do tanque" [(ngModel)]="vehicle.tankCapacity" name="tankCapacity" required>
         </mat-form-field>
     </form>
     <button mat-raised-button (click)="updateVehicle()" color="primary">

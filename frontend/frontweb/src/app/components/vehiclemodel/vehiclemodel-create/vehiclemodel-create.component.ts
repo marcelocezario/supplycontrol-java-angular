@@ -3,7 +3,7 @@ import { BrandService } from './../../brand/brand.service';
 import { VehiclemodelService } from './../vehiclemodel.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Vehiclemodel } from '../vehiclemodel.model';
+import { VehicleModel } from '../vehiclemodel.model';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -17,7 +17,7 @@ export class VehiclemodelCreateComponent implements OnInit {
 
   brands: Brand[]
 
-  vehiclemodel: Vehiclemodel = {
+  vehiclemodel: VehicleModel = {
     name: '',
     brand: null
   }

@@ -7,6 +7,19 @@
       </ng-container>
   
       <!-- License Plate Column -->
+      <ng-container matColumnDef="brand">
+        <th mat-header-cell *matHeaderCellDef>Marca</th>
+        <td mat-cell *matCellDef="let row">{{row.vehicleModel.brand.name}}</td>
+      </ng-container>
+
+
+      <!-- Id Column -->
+      <ng-container matColumnDef="vehicleModel">
+        <th mat-header-cell *matHeaderCellDef>Modelo</th>
+        <td mat-cell *matCellDef="let row">{{row.vehicleModel.name}}</td>
+      </ng-container>
+  
+      <!-- License Plate Column -->
       <ng-container matColumnDef="licensePlate">
         <th mat-header-cell *matHeaderCellDef>Placa</th>
         <td mat-cell *matCellDef="let row">{{row.licensePlate}}</td>
@@ -21,7 +34,7 @@
       <!-- Tank Capacity Column -->
       <ng-container matColumnDef="tankCapacity">
         <th mat-header-cell *matHeaderCellDef>Capacidade do tanque</th>
-        <td mat-cell *matCellDef="let row">{{row.tankCapacity}}</td>
+        <td mat-cell *matCellDef="let row">{{row.tankCapacity}} litros</td>
       </ng-container>
 
       <!-- Action Column -->

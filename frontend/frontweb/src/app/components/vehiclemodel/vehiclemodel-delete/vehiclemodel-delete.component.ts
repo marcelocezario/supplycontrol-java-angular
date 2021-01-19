@@ -1,6 +1,6 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { VehiclemodelService } from './../vehiclemodel.service';
-import { Vehiclemodel } from './../vehiclemodel.model';
+import { VehicleModel } from './../vehiclemodel.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VehiclemodelDeleteComponent implements OnInit {
 
-  vehiclemodel: Vehiclemodel
+  vehiclemodel: VehicleModel
 
   constructor(private vehiclemodelService: VehiclemodelService, private router: Router, private route: ActivatedRoute) { }
 
