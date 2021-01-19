@@ -38,7 +38,12 @@ export class VehicleModelService {
   }
 
   readByBrand(idBrand: number): Observable<VehicleModel[]> {
-    return this.http.get<VehicleModel[]>(this.baseUrl + 'filter?idBrand=' + idBrand).pipe(
+
+    let url = this.baseUrl + '/filter?idBrand=' + idBrand
+
+    console.log(url)
+
+    return this.http.get<VehicleModel[]>(url).pipe(
       map(obj => obj),
       catchError(e => this.errorHandler(e))
     );
