@@ -17,7 +17,7 @@ public class VehicleModelService {
 
 	@Autowired
 	private VehicleModelRepository repository;
-	
+
 	@Autowired
 	private BrandService brandService;
 
@@ -46,13 +46,17 @@ public class VehicleModelService {
 		updateData(newObj, obj);
 		return repository.save(newObj);
 	}
-	
+
 	public void updateData(VehicleModel newObj, VehicleModel obj) {
 		newObj.setName(obj.getName());
 		newObj.setBrand(obj.getBrand());
 	}
-	
+
 	public VehicleModel fromDTO(VehicleModelDTO objDTO) {
 		return new VehicleModel(objDTO.getId(), objDTO.getName(), brandService.fromDTO(objDTO.getBrand()));
+	}
+
+	public List<VehicleModel> findByBrand(Long idBrand) {
+		return repository.findByBrand(brandService.findById(idBrand));
 	}
 }

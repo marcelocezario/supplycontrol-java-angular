@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -53,12 +54,19 @@ public class VehicleModelResource {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}
-	
+
 	@PutMapping(value = "/{id}")
 	public ResponseEntity<Void> update(@RequestBody VehicleModelDTO objDTO, @PathVariable Long id) {
 		VehicleModel obj = service.fromDTO(objDTO);
 		obj.setId(id);
 		obj = service.update(obj);
 		return ResponseEntity.noContent().build();
+	}
+
+	@GetMapping(value = "/filter")
+	public ResponseEntity<List<VehicleModelDTO>> findByBrand(@RequestParam("idBrand") Long idBrand) {
+		List<VehicleModel> list = service.findByBrand(idBrand);
+		List<VehicleModelDTO> listDto = list.stream().map(x -> new VehicleModelDTO(x)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDto);
 	}
 }
