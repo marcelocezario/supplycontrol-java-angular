@@ -1,5 +1,5 @@
 import { VehicleModel } from './../../vehiclemodel/vehiclemodel.model';
-import { VehiclemodelService } from './../../vehiclemodel/vehiclemodel.service';
+import { VehicleModelService } from './../../vehiclemodel/vehiclemodel.service';
 import { Brand } from './../../brand/brand.model';
 import { BrandService } from './../../brand/brand.service';
 import { VehicleService } from './../vehicle.service';
@@ -32,7 +32,7 @@ export class VehicleCreateComponent implements OnInit {
   }
 
   constructor(private vehicleService: VehicleService, private router: Router, private route: ActivatedRoute,
-    private brandService: BrandService, private vehiclemodelService: VehiclemodelService) { }
+    private brandService: BrandService, private vehiclemodelService: VehicleModelService) { }
 
   ngOnInit(): void {
     this.brandService.read().subscribe(brands => {

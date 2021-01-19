@@ -8,7 +8,7 @@ import { EMPTY, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class VehiclemodelService {
+export class VehicleModelService {
 
   baseUrl = "https://supplycontrol.herokuapp.com/vehiclemodels"
 

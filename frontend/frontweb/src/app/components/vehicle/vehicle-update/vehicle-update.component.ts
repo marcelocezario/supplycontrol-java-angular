@@ -1,4 +1,4 @@
-import { VehiclemodelService } from './../../vehiclemodel/vehiclemodel.service';
+import { VehicleModelService } from './../../vehiclemodel/vehiclemodel.service';
 import { VehicleModel } from './../../vehiclemodel/vehiclemodel.model';
 import { BrandService } from './../../brand/brand.service';
 import { Brand } from './../../brand/brand.model';
@@ -22,12 +22,14 @@ export class VehicleUpdateComponent implements OnInit {
 
   brand: Brand
 
-  vehiclemodels: VehicleModel[]
+  vehicleModels: VehicleModel[]
+
+  vehicleModel: VehicleModel
 
   vehicle: Vehicle
 
   constructor(private vehicleService: VehicleService, private router: Router,
-    private route: ActivatedRoute, private brandService: BrandService, private vehiclemodelService: VehiclemodelService) { }
+    private route: ActivatedRoute, private brandService: BrandService, private vehicleModelService: VehicleModelService) { }
 
   ngOnInit(): void {
     this.brandService.read().subscribe(brands => {
@@ -38,15 +40,15 @@ export class VehicleUpdateComponent implements OnInit {
     this.vehicleService.readById(id).subscribe(vehicle => {
       this.vehicle = vehicle;
 
-      this.vehiclemodelService.readByBrand(vehicle.vehicleModel.brand.id).subscribe(vehiclemodels => {
-        this.vehiclemodels = vehiclemodels
+      this.vehicleModelService.readByBrand(this.vehicle.vehicleModel.brand.id).subscribe(vehicleModels => {
+        this.vehicleModels = vehicleModels
       })
     })
   }
 
   selectedBrand(idBrand: number): void {
-    this.vehiclemodelService.readByBrand(idBrand).subscribe(vehiclemodels => {
-      this.vehiclemodels = vehiclemodels
+    this.vehicleModelService.readByBrand(idBrand).subscribe(vehicleModels => {
+      this.vehicleModels = vehicleModels
     })
   }
 

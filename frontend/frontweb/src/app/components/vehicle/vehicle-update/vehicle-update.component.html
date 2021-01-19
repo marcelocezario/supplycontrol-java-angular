@@ -17,7 +17,7 @@
             <mat-label>Selecione um modelo</mat-label>
             <mat-select [(value)]="vehicle.vehicleModel.id" name="vehicleModel" required>
               <mat-option></mat-option>
-              <mat-option [value]="vehicleModel.id" *ngFor="let vehicleModel of vehiclemodels" name="vehicleModel">
+              <mat-option [value]="vehicleModel.id" *ngFor="let vehicleModel of vehicleModels" name="vehicleModel">
                   {{ vehicleModel.name }}
               </mat-option>
             </mat-select>

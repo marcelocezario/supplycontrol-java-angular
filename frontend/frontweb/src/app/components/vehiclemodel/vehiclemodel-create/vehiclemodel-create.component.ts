@@ -1,6 +1,6 @@
 import { Brand } from './../../brand/brand.model';
 import { BrandService } from './../../brand/brand.service';
-import { VehiclemodelService } from './../vehiclemodel.service';
+import { VehicleModelService } from './../vehiclemodel.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { VehicleModel } from '../vehiclemodel.model';
@@ -22,7 +22,7 @@ export class VehiclemodelCreateComponent implements OnInit {
     brand: null
   }
 
-  constructor(private vehiclemodelService: VehiclemodelService,
+  constructor(private vehicleModelService: VehicleModelService,
     private router: Router, private brandService: BrandService) { }
 
   ngOnInit(): void {
@@ -32,8 +32,8 @@ export class VehiclemodelCreateComponent implements OnInit {
   }
 
   createVehiclemodel(): void {
-    this.vehiclemodelService.create(this.vehiclemodel).subscribe(() => {
-      this.vehiclemodelService.showMessage('Modelo de veículo criado com sucesso!')
+    this.vehicleModelService.create(this.vehiclemodel).subscribe(() => {
+      this.vehicleModelService.showMessage('Modelo de veículo criado com sucesso!')
       this.router.navigate(['/vehiclemodels'])
     })
   }

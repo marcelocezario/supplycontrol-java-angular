@@ -2,7 +2,7 @@ import { BrandService } from './../../brand/brand.service';
 import { Brand } from './../../brand/brand.model';
 import { VehicleModel } from './../vehiclemodel.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { VehiclemodelService } from './../vehiclemodel.service';
+import { VehicleModelService } from './../vehiclemodel.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
@@ -19,7 +19,7 @@ export class VehiclemodelUpdateComponent implements OnInit {
 
   vehiclemodel: VehicleModel
 
-  constructor(private vehiclemodelService: VehiclemodelService, private router: Router,
+  constructor(private vehicleModelService: VehicleModelService, private router: Router,
     private route: ActivatedRoute, private brandService: BrandService) { }
 
   ngOnInit(): void {
@@ -28,15 +28,15 @@ export class VehiclemodelUpdateComponent implements OnInit {
     })
     
     const id = this.route.snapshot.paramMap.get('id')
-    this.vehiclemodelService.readById(id).subscribe(vehiclemodel => {
+    this.vehicleModelService.readById(id).subscribe(vehiclemodel => {
       this.vehiclemodel = vehiclemodel;
     })
 
   }
 
   updateVehiclemodel(): void {
-    this.vehiclemodelService.update(this.vehiclemodel).subscribe(() => {
-      this.vehiclemodelService.showMessage('Modelo de veículo atualizado com sucesso!');
+    this.vehicleModelService.update(this.vehiclemodel).subscribe(() => {
+      this.vehicleModelService.showMessage('Modelo de veículo atualizado com sucesso!');
       this.router.navigate(['/vehiclemodels']);
     })
 

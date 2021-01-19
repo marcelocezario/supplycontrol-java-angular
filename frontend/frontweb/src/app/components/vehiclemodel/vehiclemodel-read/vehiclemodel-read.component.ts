@@ -1,4 +1,4 @@
-import { VehiclemodelService } from './../vehiclemodel.service';
+import { VehicleModelService } from './../vehiclemodel.service';
 import { Component, OnInit } from '@angular/core';
 import { VehicleModel } from '../vehiclemodel.model';
 
@@ -12,10 +12,10 @@ export class VehiclemodelReadComponent implements OnInit {
   vehiclemodels: VehicleModel[]
   displayedColumns = ['id', 'marca', 'name', 'action']
 
-  constructor(private vehiclemodelService: VehiclemodelService) { }
+  constructor(private vehicleModelService: VehicleModelService) { }
 
   ngOnInit(): void {
-    this.vehiclemodelService.read().subscribe(vehiclemodels => {
+    this.vehicleModelService.read().subscribe(vehiclemodels => {
       this.vehiclemodels = vehiclemodels
       console.log(vehiclemodels)
     })
