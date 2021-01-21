@@ -3,11 +3,13 @@ INSERT INTO public.tb_brand (name, image_url) VALUES ('Mercedes', 'assets/img/im
 INSERT INTO public.tb_brand (name, image_url) VALUES ('Volvo', 'assets/img/image_not_found.svg');
 INSERT INTO public.tb_brand (name, image_url) VALUES ('Volkswagen', 'https://s2.glbimg.com/gdLNqTcRTbPbQT5315lEFC00vRg=/0x264:3543x2424/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2017/I/D/PnxWlFRmSaOaVlA2IDOA/img-6208.jpg');
 INSERT INTO public.tb_brand (name, image_url) VALUES ('Man', 'http://www.rfcaminhoes.com.br/wp-content/uploads/2016/06/media_54dd03bb890fa_475x340.jpg');
+INSERT INTO public.tb_brand (name, image_url) VALUES ('Daf', 'https://blog.tnh1.com.br/pajucaraauto/wp-content/uploads/2020/08/Novo-DAF-XF-Brasil-Externa-7-1240x826.jpeg');
 INSERT INTO public.tb_vehicle_model (name, brand_id) VALUES ('R114', 1);
 INSERT INTO public.tb_vehicle_model (name, brand_id) VALUES ('P310', 1);
 INSERT INTO public.tb_vehicle_model (name, brand_id) VALUES ('LS 1634', 2);
 INSERT INTO public.tb_vehicle_model (name, brand_id) VALUES ('25390', 5);
 INSERT INTO public.tb_vehicle_model (name, brand_id) VALUES ('FH12', 3);
+INSERT INTO public.tb_vehicle_model (name, brand_id) VALUES ('XF FTT530 6x4 Super Space Cab', 6);
 INSERT INTO public.tb_vehicle (license_plate, model_year, tank_capacity, model_vehicle_id) VALUES ('AAA1A111', 2020, 500, 1);
 INSERT INTO public.tb_vehicle (license_plate, model_year, tank_capacity, model_vehicle_id) VALUES ('BBB1A111', 2019, 300, 2);
 INSERT INTO public.tb_vehicle (license_plate, model_year, tank_capacity, model_vehicle_id) VALUES ('CCC1A111', 2018, 200, 3);
@@ -15,6 +17,7 @@ INSERT INTO public.tb_vehicle (license_plate, model_year, tank_capacity, model_v
 INSERT INTO public.tb_vehicle (license_plate, model_year, tank_capacity, model_vehicle_id) VALUES ('EEE1A111', 1999, 500, 5);
 INSERT INTO public.tb_vehicle (license_plate, model_year, tank_capacity, model_vehicle_id) VALUES ('FFF1A111', 1998, 600, 3);
 INSERT INTO public.tb_vehicle (license_plate, model_year, tank_capacity, model_vehicle_id) VALUES ('GGG1A111', 2020, 400, 3);
+INSERT INTO public.tb_vehicle (license_plate, model_year, tank_capacity, model_vehicle_id) VALUES ('DAF0A000', 2021, 600, 6);
 INSERT INTO public.tb_supply (moment, odometer, liters_filled, price_total, full_tank, fuel, total_journey_from_full_tank, total_liters_with_the_journey, vehicle_id) VALUES ('2021-01-01T00:00:00Z', 0, '500.0', '1500.0',true, 3, 0, '0.0', 1); 
 INSERT INTO public.tb_supply (moment, odometer, liters_filled, price_total, full_tank, fuel, total_journey_from_full_tank, total_liters_with_the_journey, vehicle_id) VALUES ('2021-01-02T00:00:00Z', 700, '400.0', '1236.0', true, 3, 700, '400', 1);
 INSERT INTO public.tb_supply (moment, odometer, liters_filled, price_total, full_tank, fuel, total_journey_from_full_tank, total_liters_with_the_journey, vehicle_id) VALUES ('2021-01-03T00:00:00Z', 1000, '200.0', '598.00', true, 3, 300, '200', 1);
@@ -23,3 +26,4 @@ INSERT INTO public.tb_supply (moment, odometer, liters_filled, price_total, full
 INSERT INTO public.tb_supply (moment, odometer, liters_filled, price_total, full_tank, fuel, total_journey_from_full_tank, total_liters_with_the_journey, vehicle_id) VALUES ('2021-01-06T00:00:00Z', 1000, '200.0', '610.0', true, 3, 0, '0', 2);
 INSERT INTO public.tb_supply (moment, odometer, liters_filled, price_total, full_tank, fuel, total_journey_from_full_tank, total_liters_with_the_journey, vehicle_id) VALUES ('2021-01-07T00:00:00Z', 1500, '250.0', '897.5', false, 3, 0, '0', 2);
 INSERT INTO public.tb_supply (moment, odometer, liters_filled, price_total, full_tank, fuel, total_journey_from_full_tank, total_liters_with_the_journey, vehicle_id) VALUES ('2021-01-08T00:00:00Z', 1800, '250.0', '900.0', true, 3, 800, '500', 2);
+INSERT INTO public.tb_supply (moment, odometer, liters_filled, price_total, full_tank, fuel, total_journey_from_full_tank, total_liters_with_the_journey, vehicle_id) VALUES ('2021-01-08T00:00:00Z', 0, '600.0', '1800.0', true, 3, 0, '0', 8);

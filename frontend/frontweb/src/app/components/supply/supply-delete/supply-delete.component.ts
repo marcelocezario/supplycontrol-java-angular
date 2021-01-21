@@ -1,3 +1,5 @@
+import { Fuel } from './../fuel-enum.model';
+import { Vehicle } from './../../vehicle/vehicle.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SupplyService } from './../supply.service';
 import { Supply } from './../supply.model';
@@ -10,7 +12,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SupplyDeleteComponent implements OnInit {
 
+
+  vehicles: Vehicle[]
+
+  fuelEnum: Fuel;
+  fuels = [];
+
   supply: Supply
+
 
   constructor(private supplyService: SupplyService, private router: Router, private route: ActivatedRoute) { }
 
@@ -19,6 +28,10 @@ export class SupplyDeleteComponent implements OnInit {
     this.supplyService.readById(id).subscribe((supply) => {
       this.supply = supply;
     })
+
+    this.fuels = Object.keys(Fuel).map(key => ({
+      id: Fuel[key], name: key
+    }))
   }
 
   deleteSupply(): void {

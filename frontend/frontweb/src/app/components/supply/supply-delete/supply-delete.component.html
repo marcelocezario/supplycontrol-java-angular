@@ -1,0 +1,46 @@
+<mat-card>
+    <mat-card-title>Excluir abastecimento</mat-card-title>
+    <form>
+
+        <mat-form-field>
+            <input matInput placeholder="Data" [(ngModel)]="supply.moment" name="moment" disabled>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Placa" [(ngModel)]="supply.vehicle.licensePlate" name="vehicle.licensePlate" disabled>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Odometro" [(ngModel)]="supply.odometer" name="odometer" disabled>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Litragem abastecida" [(ngModel)]="supply.litersFilled" name="listersFilled" disabled>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Valor total abastecimento" [(ngModel)]="supply.priceTotal" name="priceTotal" disabled>
+        </mat-form-field>
+
+        <mat-slide-toggle [(ngModel)]="supply.fullTank" name="fullTank" disabled>Tanque cheio?</mat-slide-toggle>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Selecione um combustível</mat-label>
+            <mat-select [(value)]="supply.fuel" required disabled>
+              <mat-option></mat-option>
+              <mat-option [value]="fuel.name" *ngFor="let fuel of fuels">
+                  {{ fuel.id }}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+
+
+    </form>
+    <button mat-raised-button (click)="deleteSupply()" color="primary">
+        Deletar
+    </button>
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>
