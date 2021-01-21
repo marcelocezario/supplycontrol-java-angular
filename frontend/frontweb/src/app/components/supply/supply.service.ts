@@ -10,8 +10,9 @@ import { Supply } from './supply.model';
 })
 export class SupplyService {
 
-  baseUrl = "https://supplycontrol.herokuapp.com/supplies"
-
+  //baseUrl = "https://supplycontrol.herokuapp.com/supplies"
+  baseUrl = "http://localhost:8080/supplies"
+  
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 
   showMessage(msg: string, isError: boolean = false): void {

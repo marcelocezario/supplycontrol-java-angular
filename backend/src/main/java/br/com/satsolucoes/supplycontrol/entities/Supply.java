@@ -27,7 +27,7 @@ public class Supply implements Serializable {
 	private Double litersFilled;
 	private Double priceTotal;
 	private boolean fullTank;
-	private Fuel fuel;
+	private Integer fuel;
 	private Integer totalJourneyFromFullTank;
 	private Double totalLitersWithTheJourney;
 
@@ -47,7 +47,7 @@ public class Supply implements Serializable {
 		this.litersFilled = litersFilled;
 		this.priceTotal = priceTotal;
 		this.fullTank = fullTank;
-		this.fuel = fuel;
+		this.fuel = fuel.getCod();
 		this.totalJourneyFromFullTank = totalJourneyFromFullTank;
 		this.totalLitersWithTheJourney = totalLitersWithTheJourney;
 		this.vehicle = vehicle;
@@ -102,11 +102,11 @@ public class Supply implements Serializable {
 	}
 
 	public Fuel getFuel() {
-		return fuel;
+		return Fuel.toEnum(fuel);
 	}
 
 	public void setFuel(Fuel fuel) {
-		this.fuel = fuel;
+		this.fuel = fuel.getCod();
 	}
 
 	public Integer getTotalJourneyFromFullTank() {

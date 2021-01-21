@@ -1,7 +1,11 @@
+import { VehicleService } from './../../vehicle/vehicle.service';
+import { Fuel } from './../fuel-enum.model';
+import { Vehicle } from './../../vehicle/vehicle.model';
 import { SupplyService } from './../supply.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Supply } from '../supply.model';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-supply-create',
@@ -10,20 +14,37 @@ import { Supply } from '../supply.model';
 })
 export class SupplyCreateComponent implements OnInit {
 
+  formControl = new FormControl ('', Validators.required);
+
+  vehicles: Vehicle[]
+
+  fuelEnum: Fuel;
+  fuels = [];
+
+
   supply: Supply = {
-    moment: '',
+    moment: null,
     odometer: null,
     litersFilled: null,
-    literValueOfFuel: null,
+    priceTotal: null,
     fullTank: true,
-    averageConsumption: null,
-    fuel: null
+    fuel: null,
+    vehicle: null
   }
 
-  constructor(private supplyService: SupplyService,
-    private router: Router) { }
+  constructor(private supplyService: SupplyService, private router: Router, private vehicleService: VehicleService) { }
 
   ngOnInit(): void {
+
+    this.vehicleService.read().subscribe(vehicles => {
+      this.vehicles = vehicles
+    })
+
+    this.fuels = Object.keys(Fuel).map(key => ({
+      id: Fuel[key], name: key
+    }))
+
+
   }
 
   createSupply(): void {

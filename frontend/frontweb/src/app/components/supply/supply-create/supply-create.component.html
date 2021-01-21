@@ -1,24 +1,52 @@
 <mat-card>
     <mat-card-title>Novo abastecimento</mat-card-title>
     <form>
-        <mat-form-field>
-            <input type="datetime" matInput placeholder="Momento" [(ngModel)]="supply.moment" name="moment">
+
+        <mat-form-field appearance="fill">
+            <mat-label>Escolha uma data</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="supply.moment" name="moment">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #picker></mat-datepicker>
         </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Selecione uma placa</mat-label>
+            <mat-select [(value)]="supply.vehicle" required>
+              <mat-option></mat-option>
+              <mat-option [value]="vehicle" *ngFor="let vehicle of vehicles">
+                  {{ vehicle.licensePlate }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="formControl.hasError('required')">Por favor escolha um veículo</mat-error>
+        </mat-form-field>
+
         <mat-form-field>
             <input matInput placeholder="Odometro" [(ngModel)]="supply.odometer" name="odometer">
         </mat-form-field>
+
         <mat-form-field>
-            <input matInput placeholder="Litragem abastecida" [(ngModel)]="supply.litersFilled" name="litersFilled">
+            <input matInput placeholder="Litragem abastecida" [(ngModel)]="supply.litersFilled" name="listersFilled">
         </mat-form-field>
+
         <mat-form-field>
-            <input matInput placeholder="Valor por litro do combustível" [(ngModel)]="supply.literValueOfFuel" name="literValueOfFuel">
+            <input matInput placeholder="Valor total abastecimento" [(ngModel)]="supply.priceTotal" name="priceTotal">
         </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Tanque cheio" [(ngModel)]="supply.fullTank" name="fullTank">
+
+        <mat-slide-toggle [(ngModel)]="supply.fullTank" name="fullTank">Tanque cheio?</mat-slide-toggle>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Selecione um combustível</mat-label>
+            <mat-select [(value)]="supply.fuel" required>
+              <mat-option></mat-option>
+              <mat-option [value]="fuel.name" *ngFor="let fuel of fuels">
+                  {{ fuel.id }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="formControl.hasError('required')">Por favor escolha um combustível</mat-error>
         </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Combustível" [(ngModel)]="supply.fuel" name="fuel">
-        </mat-form-field>
+
+
+
     </form>
     <button mat-raised-button (click)="createSupply()" color="primary">
         Salvar

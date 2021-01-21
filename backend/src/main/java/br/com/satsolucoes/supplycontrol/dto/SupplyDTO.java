@@ -17,7 +17,7 @@ public class SupplyDTO implements Serializable{
 	private Double litersFilled;
 	private Double priceTotal;
 	private boolean fullTank;
-	private Fuel fuel;
+	private Integer fuel;
 	private Integer totalJourneyFromFullTank;
 	private Double totalLitersWithTheJourney;
 	private Double averageConsumption;
@@ -36,7 +36,7 @@ public class SupplyDTO implements Serializable{
 		this.litersFilled = litersFilled;
 		this.priceTotal = priceTotal;
 		this.fullTank = fullTank;
-		this.fuel = fuel;
+		this.fuel = fuel.getCod();
 		this.totalJourneyFromFullTank = totalJourneyFromFullTank;
 		this.totalLitersWithTheJourney = totalLitersWithTheJourney;
 		this.averageConsumption = averageConsumption;
@@ -50,7 +50,7 @@ public class SupplyDTO implements Serializable{
 		litersFilled = entity.getLitersFilled();
 		priceTotal = entity.getPriceTotal();
 		fullTank = entity.isFullTank();
-		fuel = entity.getFuel();
+		fuel = entity.getFuel().getCod();
 		totalJourneyFromFullTank = entity.getTotalJourneyFromFullTank();
 		totalLitersWithTheJourney = entity.getTotalLitersWithTheJourney();
 		averageConsumption = entity.getAverageConsumption();
@@ -106,11 +106,11 @@ public class SupplyDTO implements Serializable{
 	}
 
 	public Fuel getFuel() {
-		return fuel;
+		return Fuel.toEnum(fuel);
 	}
 
 	public void setFuel(Fuel fuel) {
-		this.fuel = fuel;
+		this.fuel = fuel.getCod();
 	}
 
 	public Integer getTotalJourneyFromFullTank() {

@@ -53,7 +53,10 @@ import { MenuComponent } from './components/template/menu/menu.component';
 import { BrandCardComponent } from './components/brand/brand-card/brand-card.component';
 
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 
@@ -108,7 +111,11 @@ registerLocaleData(localePt);
     MatSortModule,
     MatIconModule,
     MatMenuModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSlideToggleModule,
+    MatRadioModule
   ],
   providers: [{
     provide: LOCALE_ID,

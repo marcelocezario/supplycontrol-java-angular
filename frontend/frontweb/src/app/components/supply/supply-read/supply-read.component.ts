@@ -10,8 +10,8 @@ import { Supply } from '../supply.model';
 export class SupplyReadComponent implements OnInit {
 
   supplies: Supply[]
-  displayedColumns = ['id', 'licensePlate', 'odometer', 'litersFilled', 'literValueOfFuel', 'fullTank', 'averageConsumption', 'action']
-
+  displayedColumns = ['id', 'moment', 'vehicle', 'odometer', 'litersFilled', 'priceTotal', 'fullTank', 'averageConsumption', 'action']
+//  displayedColumns = ['id', 'moment', 'vehicle', 'action']
   constructor(private supplyService: SupplyService) { }
 
   ngOnInit(): void {
