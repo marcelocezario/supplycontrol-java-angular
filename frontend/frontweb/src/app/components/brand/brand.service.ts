@@ -10,8 +10,8 @@ import { Brand } from './brand.model';
 })
 export class BrandService {
 
-  //baseUrl = "https://supplycontrol.herokuapp.com/brands"
-  baseUrl = "http://localhost:8080/brands"
+  baseUrl = "https://supplycontrol.herokuapp.com/brands"
+  //baseUrl = "http://localhost:8080/brands"
   
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 

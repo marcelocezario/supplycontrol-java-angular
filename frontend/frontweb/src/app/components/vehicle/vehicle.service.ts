@@ -10,8 +10,8 @@ import { Vehicle } from './vehicle.model';
 })
 export class VehicleService {
 
-  //baseUrl = "https://supplycontrol.herokuapp.com/vehicles"
-  baseUrl = "http://localhost:8080/vehicles"
+  baseUrl = "https://supplycontrol.herokuapp.com/vehicles"
+  //baseUrl = "http://localhost:8080/vehicles"
   
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 
