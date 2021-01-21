@@ -22,7 +22,7 @@ public interface SupplyRepository extends JpaRepository<Supply, Long> {
 	List<Supply> findByVehicleOrderByOdometerDesc(Vehicle vehicle);
 
 	@Transactional(readOnly = true)
-	@Query("SELECT DISTINCT sum(obj.litersFilled) FROM Supply obj WHERE obj.vehicle LIKE :vehicle AND obj.odometer > :odometerMin AND obj.odometer < :odometerMax")
+	@Query("SELECT DISTINCT sum(obj.litersFilled) FROM Supply obj WHERE obj.vehicle = :vehicle AND obj.odometer > :odometerMin AND obj.odometer < :odometerMax")
 	Double sumLitersFilledInTheInterval(Vehicle vehicle, Integer odometerMin, Integer odometerMax);
 
 	@Transactional(readOnly = true)
