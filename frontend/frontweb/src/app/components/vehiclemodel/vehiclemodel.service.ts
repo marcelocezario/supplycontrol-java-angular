@@ -10,8 +10,9 @@ import { EMPTY, Observable } from 'rxjs';
 })
 export class VehicleModelService {
 
-  baseUrl = "https://supplycontrol.herokuapp.com/vehiclemodels"
-
+  //baseUrl = "https://supplycontrol.herokuapp.com/vehiclemodels"
+  baseUrl = "http://localhost:8080/vehiclemodels"
+  
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 
   showMessage(msg: string, isError: boolean = false): void {
