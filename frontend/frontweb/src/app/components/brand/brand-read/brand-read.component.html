@@ -1,4 +1,7 @@
 <div class="container">
+  <ngx-spinner>
+    <p style="color: white">Carregando dados, por favor aguarde!</p>
+  </ngx-spinner>
   <div class="list-items">
     <app-brand-card *ngFor="let brand of brands" [brand]="brand"></app-brand-card>
   </div>

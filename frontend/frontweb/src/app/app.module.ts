@@ -57,6 +57,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatRadioModule } from '@angular/material/radio';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 
@@ -115,7 +116,8 @@ registerLocaleData(localePt);
     MatDatepickerModule,
     MatNativeDateModule,
     MatSlideToggleModule,
-    MatRadioModule
+    MatRadioModule,
+    NgxSpinnerModule
   ],
   providers: [{
     provide: LOCALE_ID,
